@@ -1,0 +1,11 @@
+.shadow {
+  box-shadow: -2px 1px 18px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 1px 18px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 1px 18px 0px rgba(0, 0, 0, 0.75);
+}
+.footer-menu a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
+}

@@ -1,0 +1,12 @@
+.crt-ans {
+  padding: 3px 10px;
+}
+.wrong-ans {
+  padding: 3px 10px;
+  border: 1px solid #ddd;
+}
+.option {
+  background: rgb(239, 247, 197);
+  border-radius: 20px;
+  margin-bottom: 10px;
+}

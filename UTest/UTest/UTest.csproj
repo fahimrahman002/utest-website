@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3914077D-F94E-4873-AFF9-3A4E8E668160}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UTest</RootNamespace>
+    <AssemblyName>UTest</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44360</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="dist\apexcharts.amd.js" />
+    <Content Include="dist\apexcharts.amd.js.LICENSE.txt" />
+    <Content Include="dist\apexcharts.common.js" />
+    <Content Include="dist\apexcharts.css" />
+    <Content Include="dist\apexcharts.esm.js" />
+    <Content Include="dist\apexcharts.js" />
+    <Content Include="dist\apexcharts.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="images\hero.svg" />
+    <Content Include="images\icons8-envelope-48.png" />
+    <Content Include="images\icons8-facebook.svg" />
+    <Content Include="images\icons8-location-48.png" />
+    <Content Include="images\image.jpg" />
+    <Content Include="images\live.svg" />
+    <Content Include="images\login.svg" />
+    <Content Include="images\Online test-rafiki.svg" />
+    <Content Include="images\profile.jpg" />
+    <Content Include="images\signup.svg" />
+    <Content Include="images\sld.png" />
+    <Content Include="images\slide.png" />
+    <Content Include="images\slide1.png" />
+    <Content Include="images\slider.png" />
+    <Content Include="images\slider1.png" />
+    <Content Include="images\slider2.png" />
+    <Content Include="images\ssl.png" />
+    <Content Include="images\U-test-Vector-new.jpg" />
+    <Content Include="images\U-test-Vector-new.png" />
+    <Content Include="images\user-white.png" />
+    <Content Include="images\user.png" />
+    <Content Include="images\usersmall.png" />
+    <Content Include="js\9f94eee28c7abfdbbbb5365c80760157.jpg" />
+    <Content Include="js\a26f6097192575.5ebf35415c428.png" />
+    <Content Include="js\a7839d87db3043adc18ebbe7132373cb.jpeg" />
+    <Content Include="js\apexchart.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\download.jpg" />
+    <Content Include="js\question.js" />
+    <Content Include="js\quiz-template-social-media-application-260nw-1649046553.jpg" />
+    <Content Include="js\script.js" />
+    <Content Include="js\top-gainers-leaderboard-1024x768.jpg" />
+    <Content Include="js\userProfile.js" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.cs</LastGenOutput>
+    </Content>
+    <Content Include="samples\assets\github-data.js" />
+    <Content Include="samples\assets\images\1101098.png" />
+    <Content Include="samples\assets\images\2979121308_59539a3898_z.jpg" />
+    <Content Include="samples\assets\images\4274635880_809a4b9d0d_z.jpg" />
+    <Content Include="samples\assets\images\4679113782_ca13e2e6c0_z.jpg" />
+    <Content Include="samples\assets\images\abstract.jpg" />
+    <Content Include="samples\assets\images\clock.png" />
+    <Content Include="samples\assets\images\ico-instagram.png" />
+    <Content Include="samples\assets\images\ico-messenger.png" />
+    <Content Include="samples\assets\images\stripes.jpg" />
+    <Content Include="samples\assets\irregular-data-series.js" />
+    <Content Include="samples\assets\ohlc.js" />
+    <Content Include="samples\assets\stock-prices.js" />
+    <Content Include="samples\assets\styles.css" />
+    <Content Include="samples\react\area\area-datetime.html" />
+    <Content Include="samples\react\area\area-github-style.html" />
+    <Content Include="samples\react\area\area-spline.html" />
+    <Content Include="samples\react\area\area-with-missing-data.html" />
+    <Content Include="samples\react\area\area-with-negative.html" />
+    <Content Include="samples\react\area\basic-area.html" />
+    <Content Include="samples\react\area\stacked-area.html" />
+    <Content Include="samples\react\area\timeseries-with-irregular-data.html" />
+    <Content Include="samples\react\bar\bar-with-custom-data-labels.html" />
+    <Content Include="samples\react\bar\bar-with-images.html" />
+    <Content Include="samples\react\bar\bar-with-markers.html" />
+    <Content Include="samples\react\bar\bar-with-negative.html" />
+    <Content Include="samples\react\bar\basic-bar.html" />
+    <Content Include="samples\react\bar\grouped-bar.html" />
+    <Content Include="samples\react\bar\patterned-bar.html" />
+    <Content Include="samples\react\bar\reversed-bar.html" />
+    <Content Include="samples\react\bar\stacked-bar-100.html" />
+    <Content Include="samples\react\bar\stacked-bar.html" />
+    <Content Include="samples\react\boxPlot\basic.html" />
+    <Content Include="samples\react\boxPlot\boxplot-scatter.html" />
+    <Content Include="samples\react\boxPlot\horizontal-boxplot.html" />
+    <Content Include="samples\react\bubble\3d-bubble.html" />
+    <Content Include="samples\react\bubble\simple-bubble.html" />
+    <Content Include="samples\react\candlestick\basic.html" />
+    <Content Include="samples\react\candlestick\candlestick-bar.html" />
+    <Content Include="samples\react\candlestick\candlestick-category.html" />
+    <Content Include="samples\react\candlestick\candlestick-line.html" />
+    <Content Include="samples\react\column\basic-column.html" />
+    <Content Include="samples\react\column\column-with-data-labels.html" />
+    <Content Include="samples\react\column\column-with-markers.html" />
+    <Content Include="samples\react\column\column-with-negative.html" />
+    <Content Include="samples\react\column\column-with-rotated-data-labels.html" />
+    <Content Include="samples\react\column\column-with-rotated-labels.html" />
+    <Content Include="samples\react\column\data-color.html" />
+    <Content Include="samples\react\column\distributed-columns.html" />
+    <Content Include="samples\react\column\dynamic-loaded-chart.html" />
+    <Content Include="samples\react\column\range-column.html" />
+    <Content Include="samples\react\column\stacked-column-100.html" />
+    <Content Include="samples\react\column\stacked-column-with-line.html" />
+    <Content Include="samples\react\column\stacked-column.html" />
+    <Content Include="samples\react\heatmap\basic.html" />
+    <Content Include="samples\react\heatmap\color-range.html" />
+    <Content Include="samples\react\heatmap\image-fill.html" />
+    <Content Include="samples\react\heatmap\multiple-color-scales-flipped.html" />
+    <Content Include="samples\react\heatmap\multiple-color.html" />
+    <Content Include="samples\react\heatmap\rounded.html" />
+    <Content Include="samples\react\line\basic-line.html" />
+    <Content Include="samples\react\line\brush-charts.html" />
+    <Content Include="samples\react\line\dashed-line.html" />
+    <Content Include="samples\react\line\gradient-line.html" />
+    <Content Include="samples\react\line\line-with-annotations.html" />
+    <Content Include="samples\react\line\line-with-data-labels.html" />
+    <Content Include="samples\react\line\line-with-image.html" />
+    <Content Include="samples\react\line\line-with-missing-data.html" />
+    <Content Include="samples\react\line\logarithmic-line.html" />
+    <Content Include="samples\react\line\realtime.html" />
+    <Content Include="samples\react\line\stepline.html" />
+    <Content Include="samples\react\line\syncing-charts.html" />
+    <Content Include="samples\react\line\zoomable-timeseries.html" />
+    <Content Include="samples\react\misc\annotations-example.html" />
+    <Content Include="samples\react\misc\minMaxPoints.html" />
+    <Content Include="samples\react\misc\range-annotations-inverted-axis-example.html" />
+    <Content Include="samples\react\mixed\line-area.html" />
+    <Content Include="samples\react\mixed\line-column-area.html" />
+    <Content Include="samples\react\mixed\line-column.html" />
+    <Content Include="samples\react\mixed\line-scatter.html" />
+    <Content Include="samples\react\mixed\multiple-yaxes.html" />
+    <Content Include="samples\react\pie\donut-update.html" />
+    <Content Include="samples\react\pie\donut-with-pattern.html" />
+    <Content Include="samples\react\pie\gradient-donut.html" />
+    <Content Include="samples\react\pie\monochrome-pie.html" />
+    <Content Include="samples\react\pie\pie-with-image.html" />
+    <Content Include="samples\react\pie\semi-donut.html" />
+    <Content Include="samples\react\pie\simple-donut.html" />
+    <Content Include="samples\react\pie\simple-pie.html" />
+    <Content Include="samples\react\polarArea\basic-polar-area.html" />
+    <Content Include="samples\react\polarArea\polar-area-monochrome.html" />
+    <Content Include="samples\react\radar\basic-radar.html" />
+    <Content Include="samples\react\radar\radar-multiple-series.html" />
+    <Content Include="samples\react\radar\radar-with-polygon-fill.html" />
+    <Content Include="samples\react\radialBar\circle-chart-multiple.html" />
+    <Content Include="samples\react\radialBar\circle-chart-with-image.html" />
+    <Content Include="samples\react\radialBar\circle-chart.html" />
+    <Content Include="samples\react\radialBar\circle-custom-angle.html" />
+    <Content Include="samples\react\radialBar\circle-gradient.html" />
+    <Content Include="samples\react\radialBar\semi-circle-chart.html" />
+    <Content Include="samples\react\radialBar\stroked-gauge.html" />
+    <Content Include="samples\react\scatter\scatter-basic.html" />
+    <Content Include="samples\react\scatter\scatter-datetime.html" />
+    <Content Include="samples\react\scatter\scatter-images.html" />
+    <Content Include="samples\react\sparklines\sparklines.html" />
+    <Content Include="samples\react\timelines\advanced.html" />
+    <Content Include="samples\react\timelines\controlling-colors.html" />
+    <Content Include="samples\react\timelines\multi-series-group-rows.html" />
+    <Content Include="samples\react\timelines\multi-series.html" />
+    <Content Include="samples\react\timelines\simple.html" />
+    <Content Include="samples\react\treemap\basic.html" />
+    <Content Include="samples\react\treemap\color-scale.html" />
+    <Content Include="samples\react\treemap\distributed.html" />
+    <Content Include="samples\react\treemap\multi-dimensional.html" />
+    <Content Include="samples\vanilla-js\area\area-datetime.html" />
+    <Content Include="samples\vanilla-js\area\area-github-style.html" />
+    <Content Include="samples\vanilla-js\area\area-spline.html" />
+    <Content Include="samples\vanilla-js\area\area-with-missing-data.html" />
+    <Content Include="samples\vanilla-js\area\area-with-negative.html" />
+    <Content Include="samples\vanilla-js\area\basic-area.html" />
+    <Content Include="samples\vanilla-js\area\stacked-area.html" />
+    <Content Include="samples\vanilla-js\area\timeseries-with-irregular-data.html" />
+    <Content Include="samples\vanilla-js\bar\bar-with-custom-data-labels.html" />
+    <Content Include="samples\vanilla-js\bar\bar-with-images.html" />
+    <Content Include="samples\vanilla-js\bar\bar-with-markers.html" />
+    <Content Include="samples\vanilla-js\bar\bar-with-negative.html" />
+    <Content Include="samples\vanilla-js\bar\basic-bar.html" />
+    <Content Include="samples\vanilla-js\bar\grouped-bar.html" />
+    <Content Include="samples\vanilla-js\bar\patterned-bar.html" />
+    <Content Include="samples\vanilla-js\bar\reversed-bar.html" />
+    <Content Include="samples\vanilla-js\bar\stacked-bar-100.html" />
+    <Content Include="samples\vanilla-js\bar\stacked-bar.html" />
+    <Content Include="samples\vanilla-js\boxPlot\basic.html" />
+    <Content Include="samples\vanilla-js\boxPlot\boxplot-scatter.html" />
+    <Content Include="samples\vanilla-js\boxPlot\horizontal-boxplot.html" />
+    <Content Include="samples\vanilla-js\bubble\3d-bubble.html" />
+    <Content Include="samples\vanilla-js\bubble\simple-bubble.html" />
+    <Content Include="samples\vanilla-js\candlestick\basic.html" />
+    <Content Include="samples\vanilla-js\candlestick\candlestick-bar.html" />
+    <Content Include="samples\vanilla-js\candlestick\candlestick-category.html" />
+    <Content Include="samples\vanilla-js\candlestick\candlestick-line.html" />
+    <Content Include="samples\vanilla-js\column\basic-column.html" />
+    <Content Include="samples\vanilla-js\column\column-with-data-labels.html" />
+    <Content Include="samples\vanilla-js\column\column-with-markers.html" />
+    <Content Include="samples\vanilla-js\column\column-with-negative.html" />
+    <Content Include="samples\vanilla-js\column\column-with-rotated-data-labels.html" />
+    <Content Include="samples\vanilla-js\column\column-with-rotated-labels.html" />
+    <Content Include="samples\vanilla-js\column\data-color.html" />
+    <Content Include="samples\vanilla-js\column\distributed-columns.html" />
+    <Content Include="samples\vanilla-js\column\dynamic-loaded-chart.html" />
+    <Content Include="samples\vanilla-js\column\histogram.html" />
+    <Content Include="samples\vanilla-js\column\range-column.html" />
+    <Content Include="samples\vanilla-js\column\stacked-column-100.html" />
+    <Content Include="samples\vanilla-js\column\stacked-column-with-line.html" />
+    <Content Include="samples\vanilla-js\column\stacked-column.html" />
+    <Content Include="samples\vanilla-js\dashboards\dark\assets\scripts.js" />
+    <Content Include="samples\vanilla-js\dashboards\dark\assets\styles.css" />
+    <Content Include="samples\vanilla-js\dashboards\dark\index.html" />
+    <Content Include="samples\vanilla-js\dashboards\material\assets\scripts.js" />
+    <Content Include="samples\vanilla-js\dashboards\material\assets\styles.css" />
+    <Content Include="samples\vanilla-js\dashboards\material\index.html" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\data.js" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\img\banana.png" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\img\logo.png" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\img\map.png" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\img\tellius.png" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\img\user.png" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\scripts.js" />
+    <Content Include="samples\vanilla-js\dashboards\modern\assets\styles.css" />
+    <Content Include="samples\vanilla-js\dashboards\modern\index.html" />
+    <Content Include="samples\vanilla-js\dashboards\realtime\assets\edit-on-codepen.png" />
+    <Content Include="samples\vanilla-js\dashboards\realtime\assets\scripts.js" />
+    <Content Include="samples\vanilla-js\dashboards\realtime\assets\styles.css" />
+    <Content Include="samples\vanilla-js\dashboards\realtime\index.html" />
+    <Content Include="samples\vanilla-js\heatmap\basic.html" />
+    <Content Include="samples\vanilla-js\heatmap\color-range.html" />
+    <Content Include="samples\vanilla-js\heatmap\image-fill.html" />
+    <Content Include="samples\vanilla-js\heatmap\multiple-color-scales-flipped.html" />
+    <Content Include="samples\vanilla-js\heatmap\multiple-color.html" />
+    <Content Include="samples\vanilla-js\heatmap\rounded.html" />
+    <Content Include="samples\vanilla-js\line\basic-line.html" />
+    <Content Include="samples\vanilla-js\line\brush-charts.html" />
+    <Content Include="samples\vanilla-js\line\dashed-line.html" />
+    <Content Include="samples\vanilla-js\line\gradient-line.html" />
+    <Content Include="samples\vanilla-js\line\line-with-annotations.html" />
+    <Content Include="samples\vanilla-js\line\line-with-data-labels.html" />
+    <Content Include="samples\vanilla-js\line\line-with-image.html" />
+    <Content Include="samples\vanilla-js\line\line-with-missing-data.html" />
+    <Content Include="samples\vanilla-js\line\logarithmic-line.html" />
+    <Content Include="samples\vanilla-js\line\realtime.html" />
+    <Content Include="samples\vanilla-js\line\stepline.html" />
+    <Content Include="samples\vanilla-js\line\syncing-charts.html" />
+    <Content Include="samples\vanilla-js\line\zoomable-timeseries.html" />
+    <Content Include="samples\vanilla-js\misc\annotations-example.html" />
+    <Content Include="samples\vanilla-js\misc\axios.html" />
+    <Content Include="samples\vanilla-js\misc\custom-legend.html" />
+    <Content Include="samples\vanilla-js\misc\init-from-attrs.html" />
+    <Content Include="samples\vanilla-js\misc\jquery.html" />
+    <Content Include="samples\vanilla-js\misc\minMaxPoints.html" />
+    <Content Include="samples\vanilla-js\misc\range-annotations-inverted-axis-example.html" />
+    <Content Include="samples\vanilla-js\mixed\line-area.html" />
+    <Content Include="samples\vanilla-js\mixed\line-column-area.html" />
+    <Content Include="samples\vanilla-js\mixed\line-column.html" />
+    <Content Include="samples\vanilla-js\mixed\line-scatter.html" />
+    <Content Include="samples\vanilla-js\mixed\multiple-yaxes.html" />
+    <Content Include="samples\vanilla-js\pie\donut-update.html" />
+    <Content Include="samples\vanilla-js\pie\donut-with-pattern.html" />
+    <Content Include="samples\vanilla-js\pie\gradient-donut.html" />
+    <Content Include="samples\vanilla-js\pie\monochrome-pie.html" />
+    <Content Include="samples\vanilla-js\pie\pie-with-image.html" />
+    <Content Include="samples\vanilla-js\pie\semi-donut.html" />
+    <Content Include="samples\vanilla-js\pie\simple-donut.html" />
+    <Content Include="samples\vanilla-js\pie\simple-pie.html" />
+    <Content Include="samples\vanilla-js\polarArea\basic-polar-area.html" />
+    <Content Include="samples\vanilla-js\polarArea\polar-area-monochrome.html" />
+    <Content Include="samples\vanilla-js\radar\basic-radar.html" />
+    <Content Include="samples\vanilla-js\radar\radar-multiple-series.html" />
+    <Content Include="samples\vanilla-js\radar\radar-with-polygon-fill.html" />
+    <Content Include="samples\vanilla-js\radialBar\circle-chart-multiple.html" />
+    <Content Include="samples\vanilla-js\radialBar\circle-chart-with-image.html" />
+    <Content Include="samples\vanilla-js\radialBar\circle-chart.html" />
+    <Content Include="samples\vanilla-js\radialBar\circle-custom-angle.html" />
+    <Content Include="samples\vanilla-js\radialBar\circle-gradient.html" />
+    <Content Include="samples\vanilla-js\radialBar\semi-circle-chart.html" />
+    <Content Include="samples\vanilla-js\radialBar\stroked-gauge.html" />
+    <Content Include="samples\vanilla-js\scatter\scatter-basic.html" />
+    <Content Include="samples\vanilla-js\scatter\scatter-datetime.html" />
+    <Content Include="samples\vanilla-js\scatter\scatter-images.html" />
+    <Content Include="samples\vanilla-js\sparklines\sparklines.html" />
+    <Content Include="samples\vanilla-js\timelines\advanced.html" />
+    <Content Include="samples\vanilla-js\timelines\controlling-colors.html" />
+    <Content Include="samples\vanilla-js\timelines\multi-series-group-rows.html" />
+    <Content Include="samples\vanilla-js\timelines\multi-series.html" />
+    <Content Include="samples\vanilla-js\timelines\simple.html" />
+    <Content Include="samples\vanilla-js\treemap\basic.html" />
+    <Content Include="samples\vanilla-js\treemap\color-scale.html" />
+    <Content Include="samples\vanilla-js\treemap\distributed.html" />
+    <Content Include="samples\vanilla-js\treemap\multi-dimensional.html" />
+    <Content Include="samples\vue\area\area-datetime.html" />
+    <Content Include="samples\vue\area\area-github-style.html" />
+    <Content Include="samples\vue\area\area-spline.html" />
+    <Content Include="samples\vue\area\area-with-missing-data.html" />
+    <Content Include="samples\vue\area\area-with-negative.html" />
+    <Content Include="samples\vue\area\basic-area.html" />
+    <Content Include="samples\vue\area\stacked-area.html" />
+    <Content Include="samples\vue\area\timeseries-with-irregular-data.html" />
+    <Content Include="samples\vue\bar\bar-with-custom-data-labels.html" />
+    <Content Include="samples\vue\bar\bar-with-images.html" />
+    <Content Include="samples\vue\bar\bar-with-markers.html" />
+    <Content Include="samples\vue\bar\bar-with-negative.html" />
+    <Content Include="samples\vue\bar\basic-bar.html" />
+    <Content Include="samples\vue\bar\grouped-bar.html" />
+    <Content Include="samples\vue\bar\patterned-bar.html" />
+    <Content Include="samples\vue\bar\reversed-bar.html" />
+    <Content Include="samples\vue\bar\stacked-bar-100.html" />
+    <Content Include="samples\vue\bar\stacked-bar.html" />
+    <Content Include="samples\vue\boxPlot\basic.html" />
+    <Content Include="samples\vue\boxPlot\boxplot-scatter.html" />
+    <Content Include="samples\vue\boxPlot\horizontal-boxplot.html" />
+    <Content Include="samples\vue\bubble\3d-bubble.html" />
+    <Content Include="samples\vue\bubble\simple-bubble.html" />
+    <Content Include="samples\vue\candlestick\basic.html" />
+    <Content Include="samples\vue\candlestick\candlestick-bar.html" />
+    <Content Include="samples\vue\candlestick\candlestick-category.html" />
+    <Content Include="samples\vue\candlestick\candlestick-line.html" />
+    <Content Include="samples\vue\column\basic-column.html" />
+    <Content Include="samples\vue\column\column-with-data-labels.html" />
+    <Content Include="samples\vue\column\column-with-markers.html" />
+    <Content Include="samples\vue\column\column-with-negative.html" />
+    <Content Include="samples\vue\column\column-with-rotated-data-labels.html" />
+    <Content Include="samples\vue\column\column-with-rotated-labels.html" />
+    <Content Include="samples\vue\column\data-color.html" />
+    <Content Include="samples\vue\column\distributed-columns.html" />
+    <Content Include="samples\vue\column\dynamic-loaded-chart.html" />
+    <Content Include="samples\vue\column\range-column.html" />
+    <Content Include="samples\vue\column\stacked-column-100.html" />
+    <Content Include="samples\vue\column\stacked-column-with-line.html" />
+    <Content Include="samples\vue\column\stacked-column.html" />
+    <Content Include="samples\vue\heatmap\basic.html" />
+    <Content Include="samples\vue\heatmap\color-range.html" />
+    <Content Include="samples\vue\heatmap\image-fill.html" />
+    <Content Include="samples\vue\heatmap\multiple-color-scales-flipped.html" />
+    <Content Include="samples\vue\heatmap\multiple-color.html" />
+    <Content Include="samples\vue\heatmap\rounded.html" />
+    <Content Include="samples\vue\line\basic-line.html" />
+    <Content Include="samples\vue\line\brush-charts.html" />
+    <Content Include="samples\vue\line\dashed-line.html" />
+    <Content Include="samples\vue\line\gradient-line.html" />
+    <Content Include="samples\vue\line\line-with-annotations.html" />
+    <Content Include="samples\vue\line\line-with-data-labels.html" />
+    <Content Include="samples\vue\line\line-with-image.html" />
+    <Content Include="samples\vue\line\line-with-missing-data.html" />
+    <Content Include="samples\vue\line\logarithmic-line.html" />
+    <Content Include="samples\vue\line\realtime.html" />
+    <Content Include="samples\vue\line\stepline.html" />
+    <Content Include="samples\vue\line\syncing-charts.html" />
+    <Content Include="samples\vue\line\zoomable-timeseries.html" />
+    <Content Include="samples\vue\misc\annotations-example.html" />
+    <Content Include="samples\vue\misc\minMaxPoints.html" />
+    <Content Include="samples\vue\misc\range-annotations-inverted-axis-example.html" />
+    <Content Include="samples\vue\mixed\line-area.html" />
+    <Content Include="samples\vue\mixed\line-column-area.html" />
+    <Content Include="samples\vue\mixed\line-column.html" />
+    <Content Include="samples\vue\mixed\line-scatter.html" />
+    <Content Include="samples\vue\mixed\multiple-yaxes.html" />
+    <Content Include="samples\vue\pie\donut-update.html" />
+    <Content Include="samples\vue\pie\donut-with-pattern.html" />
+    <Content Include="samples\vue\pie\gradient-donut.html" />
+    <Content Include="samples\vue\pie\monochrome-pie.html" />
+    <Content Include="samples\vue\pie\pie-with-image.html" />
+    <Content Include="samples\vue\pie\semi-donut.html" />
+    <Content Include="samples\vue\pie\simple-donut.html" />
+    <Content Include="samples\vue\pie\simple-pie.html" />
+    <Content Include="samples\vue\polarArea\basic-polar-area.html" />
+    <Content Include="samples\vue\polarArea\polar-area-monochrome.html" />
+    <Content Include="samples\vue\radar\basic-radar.html" />
+    <Content Include="samples\vue\radar\radar-multiple-series.html" />
+    <Content Include="samples\vue\radar\radar-with-polygon-fill.html" />
+    <Content Include="samples\vue\radialBar\circle-chart-multiple.html" />
+    <Content Include="samples\vue\radialBar\circle-chart-with-image.html" />
+    <Content Include="samples\vue\radialBar\circle-chart.html" />
+    <Content Include="samples\vue\radialBar\circle-custom-angle.html" />
+    <Content Include="samples\vue\radialBar\circle-gradient.html" />
+    <Content Include="samples\vue\radialBar\semi-circle-chart.html" />
+    <Content Include="samples\vue\radialBar\stroked-gauge.html" />
+    <Content Include="samples\vue\scatter\scatter-basic.html" />
+    <Content Include="samples\vue\scatter\scatter-datetime.html" />
+    <Content Include="samples\vue\scatter\scatter-images.html" />
+    <Content Include="samples\vue\sparklines\sparklines.html" />
+    <Content Include="samples\vue\timelines\advanced.html" />
+    <Content Include="samples\vue\timelines\controlling-colors.html" />
+    <Content Include="samples\vue\timelines\multi-series-group-rows.html" />
+    <Content Include="samples\vue\timelines\multi-series.html" />
+    <Content Include="samples\vue\timelines\simple.html" />
+    <Content Include="samples\vue\treemap\basic.html" />
+    <Content Include="samples\vue\treemap\color-scale.html" />
+    <Content Include="samples\vue\treemap\distributed.html" />
+    <Content Include="samples\vue\treemap\multi-dimensional.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="dist\locales\ar.json" />
+    <Content Include="dist\locales\ca.json" />
+    <Content Include="dist\locales\cs.json" />
+    <Content Include="dist\locales\de.json" />
+    <Content Include="dist\locales\el.json" />
+    <Content Include="dist\locales\en.json" />
+    <Content Include="dist\locales\es.json" />
+    <Content Include="dist\locales\fa.json" />
+    <Content Include="dist\locales\fi.json" />
+    <Content Include="dist\locales\fr.json" />
+    <Content Include="dist\locales\he.json" />
+    <Content Include="dist\locales\hi.json" />
+    <Content Include="dist\locales\hr.json" />
+    <Content Include="dist\locales\hu.json" />
+    <Content Include="dist\locales\hy.json" />
+    <Content Include="dist\locales\id.json" />
+    <Content Include="dist\locales\it.json" />
+    <Content Include="dist\locales\ja.json" />
+    <Content Include="dist\locales\ka.json" />
+    <Content Include="dist\locales\ko.json" />
+    <Content Include="dist\locales\lt.json" />
+    <Content Include="dist\locales\nb.json" />
+    <Content Include="dist\locales\nl.json" />
+    <Content Include="dist\locales\pl.json" />
+    <Content Include="dist\locales\pt-br.json" />
+    <Content Include="dist\locales\pt.json" />
+    <Content Include="dist\locales\rs.json" />
+    <Content Include="dist\locales\ru.json" />
+    <Content Include="dist\locales\se.json" />
+    <Content Include="dist\locales\sk.json" />
+    <Content Include="dist\locales\sl.json" />
+    <Content Include="dist\locales\sq.json" />
+    <Content Include="dist\locales\th.json" />
+    <Content Include="dist\locales\tr.json" />
+    <Content Include="dist\locales\ua.json" />
+    <Content Include="dist\locales\zh-cn.json" />
+    <Content Include="images\U-test-Vector-new.ai" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="styles\all.min.css" />
+    <Content Include="styles\allExam.css" />
+    <Content Include="styles\apexcharts.css" />
+    <Content Include="styles\bootstrap.css" />
+    <Content Include="styles\dashboard.css" />
+    <Content Include="styles\exam.css" />
+    <Content Include="styles\fontawesome.min.css" />
+    <Content Include="styles\footer.css" />
+    <Content Include="styles\leaderboard.css" />
+    <Content Include="styles\liveExlam.css" />
+    <Content Include="styles\liveQuiz.css" />
+    <Content Include="styles\login.css" />
+    <Content Include="styles\mock.css" />
+    <Content Include="styles\performance.css" />
+    <Content Include="styles\profile.css" />
+    <Content Include="styles\review.css" />
+    <Content Include="styles\setting.css" />
+    <Content Include="styles\style.css" />
+    <Content Include="styles\userProfile.css" />
+    <Content Include="video\quiz.mp4" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Shared\UTest_layout.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\Signup.cshtml" />
+    <Content Include="Views\Users\Dashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51069</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44360/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
