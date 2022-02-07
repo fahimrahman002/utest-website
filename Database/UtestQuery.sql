@@ -1,13 +1,32 @@
-Create database Login
-DROP TABLE Users
-CREATE TABLE Users (
-   ID int  PRIMARY KEY identity(1,1),
-    Email varchar(50),
-    Password varchar(50),
-	Category varchar(50)
-	
+Create database UTestDB
+
+
+
+CREATE TABLE Student (
+    ID int  PRIMARY KEY identity(1,1),
+	Name varchar(30),
+    Email varchar(30),
+    Password varchar(30),
+	Category varchar(30)
 );
-SELECT * FROM Users
-SET IDENTITY_INSERT USERS ON
-INSERT INTO Users (Email,Password,Category)
-VALUES ('Fariya@gmail.com','123490','HSC 22');
+
+SELECT * FROM Student
+--DROP TABLE Student
+--DELETE FROM Student
+
+
+CREATE TABLE Category (
+    ID int  PRIMARY KEY identity(1,1),
+	Title varchar(30)
+);
+
+SELECT * FROM Category 
+
+-- SET IDENTITY_INSERT Student ON
+
+
+INSERT INTO Category(Title)
+VALUES ('HSC 21'),('HSC 22'),('Admission');
+
+INSERT INTO Student (Name, Email, Password, Category)
+VALUES ('Fahim', 'fahimpranto002@gmail.com', '123456', 'HSC 22');

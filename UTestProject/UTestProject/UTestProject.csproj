@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -128,16 +130,70 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\DataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Category.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Category.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Student.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>Student.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Student.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Student.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Category.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Category.edmx</DependentUpon>
+      <LastGenOutput>Category.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Category.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Category.edmx</DependentUpon>
+      <LastGenOutput>Category1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Student.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Student.edmx</DependentUpon>
+      <LastGenOutput>Student.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Student.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Student.edmx</DependentUpon>
+      <LastGenOutput>Student1.cs</LastGenOutput>
+    </Content>
     <Content Include="Static\dist\apexcharts.amd.js" />
     <Content Include="Static\dist\apexcharts.amd.js.LICENSE.txt" />
     <Content Include="Static\dist\apexcharts.common.js" />
@@ -600,15 +656,31 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\Student.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Student.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Student.edmx.diagram">
+      <DependentUpon>Student.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Category.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Category.edmx.diagram">
+      <DependentUpon>Category.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_CommonLinks.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Shared\_NavbarBeforeLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
