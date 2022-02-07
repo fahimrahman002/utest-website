@@ -11,15 +11,12 @@ namespace UTest.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class User
     {
         public int ID { get; set; }
         public string Email { get; set; }
-        [DataType(DataType.Password)]
         public string Password { get; set; }
-      
         public string Category { get; set; }
     }
 }
