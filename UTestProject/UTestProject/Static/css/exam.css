@@ -1,0 +1,17 @@
+.selected {
+  background-color: #000;
+  color: #fff;
+}
+.notSelected {
+  background-color: #eff7c5;
+  color: #000;
+}
+.res {
+  margin-right: 10rem;
+}
+
+@media screen and (max-width: 550px) {
+  .res {
+    margin-right: 0px;
+  }
+}

@@ -1,0 +1,36 @@
+.shadow {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+}
+.footer-menu a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
+}
+.tab-data {
+  background: #dbeafe;
+  border-radius: 30px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 8px 20px;
+}
+.topic {
+  background: #ffc107;
+  border-radius: 30px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 8px;
+}
+@media screen and (max-width: 500px) {
+  .tab-data {
+    margin-bottom: 10px;
+  }
+  .topic {
+    margin-bottom: 10px;
+  }
+}

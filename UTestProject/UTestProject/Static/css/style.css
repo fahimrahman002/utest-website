@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+body {
+  font-family: "Inter", "Noto Serif Bengali", sans-serif;
+}
+
+.practise_shadow {
+  -webkit-box-shadow: 1px 2px 12px 0px #ffffff !important;
+  box-shadow: 1px 2px 12px 0px #ffffff !important;
+}
+.navigationbar {
+  background: #fff !important;
+  color: #000 !important;
+  font-family: "Inter", "Noto Serif Bengali", sans-serif;
+
+  position: sticky;
+}
+.navigationbar .logo {
+  font-weight: 700 !important;
+  font-size: 34px !important;
+  line-height: 24px !important;
+}
+.navMiddle {
+  font-size: 14px;
+  line-height: 20px;
+}
+.navMiddle i {
+  margin-right: 4px;
+}
+/* .navigation-text {
+  color: #000;
+} */
+.navigationbar .right a {
+  text-decoration: none;
+  color: #000;
+}
+.navigationbar .signUp {
+  color: #000 !important;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+}
+/* hero section  */
+.hero {
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+.hero .hero-text {
+  font-weight: 900;
+  word-spacing: 10px;
+}
+.hero .color-text {
+  color: rgb(207, 0, 0);
+  font-weight: 700;
+}
+.hero h2 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.hero .btn-hero {
+  color: #fff;
+  padding: 10px 40px;
+  background-image: linear-gradient(to right, #e688b5, #ffc107);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 500;
+}
+.hero .btn-hero:hover {
+  background-image: linear-gradient(to right, #fff, #ffc107);
+  color: #000;
+  font-weight: 500;
+}
+.option {
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+/* .option:hover {
+  background-color: #ffc1078a;
+  color: #000;
+  transition: 0.7s;
+} */
+/* counter section  */
+.counter {
+  text-align: center;
+  overflow: hidden;
+}
+.counter h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+}
+.counter p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.border-counter {
+  border-right: 1px solid #fff;
+}
+
+/* plan section  */
+.plan ul {
+  list-style: none;
+}
+.plan ul li {
+  margin-left: -30px;
+  font-size: 14px;
+  padding: 6px 0;
+}
+.plan .correct {
+  color: #22c55e;
+}
+.plan .package {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.plan i {
+  font-size: 14px;
+}
+.plan .bg-2 {
+  background-image: linear-gradient(to right, #d946ef, #9333ea);
+  color: #fff;
+}
+.plan .btn-1 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.plan .btn-2 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.plan .btn-3 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.btn-1:hover {
+  background: #ffc107 !important;
+}
+.btn-2:hover {
+  background: #198754 !important;
+  color: #000 !important;
+}
+.btn-3:hover {
+  background: #6c757d !important;
+  color: #000 !important;
+}
+.plan .btn-2 {
+  font-weight: 700;
+  color: #9333ea;
+}
+/* contact section  */
+.contact .contact-margin {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #fff;
+}
+.contact h3,
+h5,
+h6 {
+  margin-top: 10px;
+}
+.contact h6 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.contact a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.contact img {
+  width: 30px;
+}
+
+/* footer section  */
+.footer {
+  overflow: hidden;
+}
+.footer-menu a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
+}
+.links a {
+  color: #000;
+}
+.option.correct {
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+.inCorrect {
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+@media screen and (max-width: 500px) {
+  .cardRes {
+    margin: 0 auto;
+  }
+  .ques-text {
+    font-size: 15px;
+  }
+  .option {
+    background: #f9fafb;
+    border-radius: 13px;
+  }
+  .contact {
+    text-align: center;
+  }
+  .link {
+  }
+  .helpVideo {
+    width: 320px;
+  }
+  .hero {
+    height: 750px !important;
+  }
+  .linkRes {
+    display: block;
+  }
+}

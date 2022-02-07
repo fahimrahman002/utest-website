@@ -1,31 +1,197 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en" lang="bn">
+<head>
+    @Html.Partial("_CommonLinks")
+    <title>UTest</title>
+</head>
+<body>
+    <div>
+        @Html.Partial("_NavbarBeforeLogin")
+        <!-- Hero section start -->
+        <section class="hero" style="background: #000 !important; height:489px">
+            <div class="row d-flex align-items-center">
+                <div class="col-12 col-md-5">
+                    <img class="img-fluid" src="~/Static/images/Online test-rafiki.svg" alt="">
+                </div>
+                <div class="col-12 col-md-7 d-flex align-items-center">
+                    <section class="mb-5">
+                        <h1 class="hero-text text-white"><span class="color-text">ঘরে বসেই  </span> যাচাই করো নিজেকে</h1>
+                        <h2 class="text-white p-2">
+                            কোন অধ্যায়ে পরীক্ষা দিবে , কত মার্কসের পরীক্ষা দিবে , কত সময়ে দিবে  সবকিছুই সেট করতে পারবে নিজেই । দিতে পারবে লাইভ এক্সাম । <br> দেখতে পারবে সবার সাথে নিজের পজিশন । তো শুরু হয়ে যাক।
+                        </h2>
+                        <span class="btn-hero">Demo Exam</span>
+                    </section>
+                </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+        </section>
+
+        <!-- Hero section end -->
+        <!-- dashboard quiz start -->
+        <section class="container mt-5">
+
+            <section class="p-4" style="overflow: hidden;">
+                <div class=" row shadow p-2 rounded" style="background: #fff;">
+                    <div class="col-md-12 col-12">
+                        <h4 style="font-size:18px;font-weight: 700; text-align: center ;font-weight:700;padding-top: 10px;">নিচের প্রশ্নটি চেষ্টা করে দেখতে পারো</h4>
+                    </div>
+                    <div class="info_box">
+                        <div class="ques-list">
+                            <div class="ques-text">
+                                <!-- <h5 class="p-3" >1.What does html Stands for ?</h5> -->
+                            </div>
+                            <div>
+                                <div class="row ques-option">
+                                    <!-- <div class="col-md-6 option" >
+                                    <!-- <h6 class="p-3">HyperText markup languege <i class="fas fa-check-circle"></i></h6> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </section>
+    </section>
+    <!-- dashboard quiz End -->
+    <!-- Plan section start -->
+    <section>
+        <div class="container  plan">
+            <h3 class="text-white pt-5 pb-5 text-center">Plans</h3>
+            <div class="text-dark row d-flex justify-content-between">
+                <div class="card shadow cardRes p-3  mb-3 shadow" style="width: 18rem;">
+                    <h6 class="card-title package hover-plan text-center bg-warning fw-bold">Free( 1 week)</h6>
+                    <div class="card-body p-0">
+                        <ul>
+                            <li><i class="fas fa-check-circle correct"></i> সকল প্রশ্নের উপর এক্সাম</li>
+                            <li><i class="fas fa-check-circle correct"></i> পারফর্মেন্স এনালাইসিস চার্ট</li>
+                            <li><i class="fas fa-check-circle correct"></i> ইচ্ছেমতো এক্সাম তৈরি</li>
+                            <li><i class="fas fa-check-circle correct"></i> লাইভ এক্সাম ফিচার</li>
+                            <li><i class="fas fa-check-circle correct"></i> ভুল করা প্রশ্ন রিভিউ </li>
+                            <li><i class="fas fa-check-circle correct"></i> সবার সাথে নিজের পজিশন </li>
+                            <li><i class="fas fa-check-circle correct"></i> ব্যাখা সহ সমাধান </li>
+                        </ul>
+                        <a href="#" class="btn bg-white w-100 btn-1 mb-4">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="card shadow  cardRes shadow  mb-3 p-3" style="width: 18rem;">
+                    <h6 class="card-title package hover-plan text-center bg-success text-white fw-bold ">Premium(6 Month)</h6>
+                    <div class="card-body p-0">
+                        <ul>
+                            <li><i class="fas fa-check-circle correct"></i> সকল প্রশ্নের উপর এক্সাম</li>
+                            <li><i class="fas fa-check-circle correct"></i> পারফর্মেন্স এনালাইসিস চার্ট</li>
+                            <li><i class="fas fa-check-circle correct"></i> ইচ্ছেমতো এক্সাম তৈরি</li>
+                            <li><i class="fas fa-check-circle correct"></i> লাইভ এক্সাম ফিচার</li>
+                            <li><i class="fas fa-check-circle correct"></i> ভুল করা প্রশ্ন রিভিউ </li>
+                            <li><i class="fas fa-check-circle correct"></i> সবার সাথে নিজের পজিশন </li>
+                            <li><i class="fas fa-check-circle correct"></i> ব্যাখা সহ সমাধান </li>
+                        </ul>
+                        <a href="#" class="btn bg-white w-100 btn-2 mb-4">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="card shadow cardRes shadow  mb-3 p-3" style="width: 18rem;">
+                    <h6 class="card-title package hover-plan text-center bg-secondary text-white fw-bold">Premium(2 years)</h6>
+                    <div class="card-body p-0">
+                        <ul>
+                            <li><i class="fas fa-check-circle correct"></i> সকল প্রশ্নের উপর এক্সাম</li>
+                            <li><i class="fas fa-check-circle correct"></i> পারফর্মেন্স এনালাইসিস চার্ট</li>
+                            <li><i class="fas fa-check-circle correct"></i> ইচ্ছেমতো এক্সাম তৈরি</li>
+                            <li><i class="fas fa-check-circle correct"></i> লাইভ এক্সাম ফিচার</li>
+                            <li><i class="fas fa-check-circle correct"></i> ভুল করা প্রশ্ন রিভিউ </li>
+                            <li><i class="fas fa-check-circle correct"></i> সবার সাথে নিজের পজিশন </li>
+                            <li><i class="fas fa-check-circle correct"></i> ব্যাখা সহ সমাধান </li>
+                        </ul>
+                        <a href="#" class="btn bg-white w-100 btn-3 mb-4">Choose Plan</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Plan section End -->
+    <!-- Help section start  -->
+    <div class="d-flex justify-content-center">
+        <div class="text-dark text-center p-3">
+            <h3 class="fw-bold p-3 text-dark">Any Query?</h3>
+            <video class="mt-3 mb-3 helpVideo p-3 bg-warning" width="900" height="440" controls autoplay>
+                <source src="~/Static/video/quiz.mp4" type="video/mp4">
+
+                Your browser does not support the video tag.
+            </video>
+            <h5 class="text-dark">
+                মক টেস্টের বিষয় সিলেক্ট করতে পারছি না কেন?
+            </h5>
+            <h6 class="text-dark">
+                আমাদের ওয়েবসাইটটি জাভাস্ক্রিপ্ট ছাড়া সঠিকভাবে কাজ করবে না তাই
+                হয় জাভাস্ক্রিপ্ট অন করো অথবা Google Chrome অথবা Firefox ব্যাবহার
+                করো।
+            </h6>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <!-- Help section End  -->
+    <!-- contact section start  -->
+    <section class="contact mt-5 ">
+        <div class="container contact-margin">
+            <div class="row mb-1">
+
+                <div class="col-md-12 links ">
+                    <h3 class="text-center fw-bold p-3 text-dark">যোগাযোগ</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="d-flex link align-items-center me-2" style="justify-content:center!important;"><img src="~/Static/images/icons8-facebook.svg" class="me-3"></img><a target="_black" href="https://www.facebook.com/prepstore/">fb.com/prepstore</a></p>
+                        </div>
+                        <div class="col-md-4"><p class="d-flex  link align-items-center  me-2 " style="justify-content:center!important;"><img src="~/Static/images/icons8-envelope-48.png" class="me-3"></img><a href="mailto:qnapublications@gmail.com">qnapublications@gmail.com</a></p></div>
+                        <div class="col-md-4 ">   <p class=" d-flex link align-items-center me-2" style="justify-content:center!important;"><img src="~/Static/images/icons8-location-48.png" class="me-2 "></img>3/B, Rafin Plaza, Mirpur Road, New Market, Dhaka</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact section end  -->
+    <!-- footer section start  -->
+    <section class="footer text-white text-center bg-dark pt-3">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 col-12">
+                <div class="footer-icon fs-4 mb-2">
+                    <a target="_blank" href="mailto:hi@chorcha.net"><i class="far fa-envelope text-danger me-3"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/chorcha.net"> <i class="fab fa-facebook text-primary me-3"></i></a>
+                    <i class="fab fa-youtube text-danger"></i>
+                    <a target="_blank" href="https://www.youtube.com/channel/UC9h6G9JHLsMnC88Qn8rZZ5A/featured"></a>
+                </div>
+                <div class="footer-menu mb-3">
+                    <div class="menu-1">
+                        <a href="./leaderboard.html">Leaderboard</a>
+                        <a href="./liveExam.html">Live Exam</a>
+                        <a href="./liveQuiz.html">HSC_21 Mock Test</a>
+                    </div>
+
+                    <img class="img-fluid mb-2 mt-2" src="~/Static/images/ssl.png" alt="">
+                    <p style="font-size: 12px; line-height: 16px; color:#fff">
+                        Copyright ©
+                        <script>document.write(new Date().getFullYear())</script><a href="#" style="color:#556468;">UTest</a>. All
+                        rights reserved.
+
+                    </p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+
+    </section>
+    <!-- footer section end  -->
     </div>
-</div>
+    @Scripts.Render("~/Static/js/bootstrap.js")
+    @Scripts.Render("~/Static/js/question.js")
+    @Scripts.Render("~/Static/js/script.js")
+</body>
+</html>
+

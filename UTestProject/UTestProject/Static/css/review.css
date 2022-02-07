@@ -1,0 +1,23 @@
+.wrong-ans {
+  border: 1px solid red;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+.box-shadow {
+  box-shadow: -2px 1px 23px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 1px 23px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 1px 23px -6px rgba(0, 0, 0, 0.75);
+}
+.crt-ans {
+  padding: 4px 10px;
+}
+.wrong-ans {
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+}
+.option {
+  background: #f9fafb;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  margin: 10px;
+}
