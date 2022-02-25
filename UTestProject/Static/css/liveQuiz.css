@@ -10,3 +10,15 @@
   border-radius: 20px;
   margin-bottom: 10px;
 }
+.option-select {
+  background: rgb(156, 156, 156);
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.deselect-select {
+  background: rgb(239, 247, 197);
+  color: black;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}

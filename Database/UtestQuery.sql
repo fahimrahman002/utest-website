@@ -1,7 +1,5 @@
 Create database UTestDB
 
-
-
 CREATE TABLE Student (
     ID int  PRIMARY KEY identity(1,1),
 	Name varchar(30),
@@ -13,7 +11,6 @@ CREATE TABLE Student (
 SELECT * FROM Student
 --DROP TABLE Student
 --DELETE FROM Student
-
 
 CREATE TABLE Category (
     ID int  PRIMARY KEY identity(1,1),

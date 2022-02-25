@@ -10,8 +10,11 @@
   margin-right: 10rem;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .res {
     margin-right: 0px;
+  }
+  .reS {
+    margin-left: 2px;
   }
 }

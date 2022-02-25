@@ -34,8 +34,68 @@
   cursor: pointer;
   display: none;
 }
+/* plan section  */
+.plan ul {
+  list-style: none;
+}
+.plan ul li {
+  margin-left: -30px;
+  font-size: 14px;
+  padding: 6px 0;
+}
+.plan .correct {
+  color: #22c55e;
+}
+.plan .package {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.plan i {
+  font-size: 14px;
+}
+.plan .bg-2 {
+  background-image: linear-gradient(to right, #d946ef, #9333ea);
+  color: #fff;
+}
+.plan .btn-1 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.plan .btn-2 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.plan .btn-3 {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+}
+.btn-1:hover {
+  background: #ffc107 !important;
+}
+.btn-2:hover {
+  background: #198754 !important;
+  color: #000 !important;
+}
+.btn-3:hover {
+  background: #6c757d !important;
+  color: #fff !important;
+}
+.plan .btn-2 {
+  font-weight: 700;
+  color: #9333ea;
+}
 @media screen and (max-width: 490px) {
   .profile-pic-div {
     margin-left: 139px;
+  }
+  .cardRes {
+    margin: 46px auto !important;
   }
 }

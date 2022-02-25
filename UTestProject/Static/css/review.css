@@ -21,3 +21,17 @@
   border-radius: 30px;
   margin: 10px;
 }
+
+@media screen and (max-width: 500px) {
+  .res {
+    width: 50px;
+    margin-left: 0px !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .res {
+    width: 50px;
+    margin-left: 0px !important;
+  }
+}

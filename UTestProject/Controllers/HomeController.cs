@@ -39,7 +39,7 @@ namespace UTestProject.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Dashboard");
             }
 
             return View();
@@ -64,6 +64,17 @@ namespace UTestProject.Controllers
             Student student = new Student() { Name = name, Email = email, Password = password, Category = category };
             studentDb.Student.Add(student);
             studentDb.SaveChanges();
+            return RedirectToAction("Login");
+        }
+
+        [HttpGet]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
             return RedirectToAction("Login");
         }
 

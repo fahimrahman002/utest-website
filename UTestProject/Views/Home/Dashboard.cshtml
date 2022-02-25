@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Partial("_CommonLinks")
+    <link rel="stylesheet" href="~/Static/css/dashboard.css" />
+    <link rel="stylesheet" href="~/Static/css/apexcharts.css" />
+    <style>
+        .new-exam-btn {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <div>
+        @Html.Partial("_NavbarAfterLogin")
+        <!-- dashboard quiz start -->
+        <section class="container mt-5">
+            <span class="d-flex justify-content-between">
+                <h4 style="font-size: 30px;font-weight: 700;">Dashboard</h4>
+                <button class="bg-warning add-exam-btn text-dark fw-bold"><i class="fas fa-plus"></i> New Exam <i class="fas fa-arrow-right"></i></button>
+            </span>
+
+        </section>
+        <!-- dashboard quiz End -->
+        <!-- leader board start -->
+        <div class=" container mb-4 p-4 leaderboard">
+
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-12 box-shadow p-4 rounded mx-auto">
+
+                    <div class="row">
+                        <h3 style="font-size: 18px;font-weight: 700; text-align: center;">Accuracy</h3>
+                        <div class="col-md-4 col-sm-2 "></div>
+                        <div class="col-md-4 col-sm-8 d-flex justify-content-center">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="col-md-4 col-sm-2 "></div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 mt-3  pt-4  rounded mobile-view p-3">
+                                <div class="div">
+                                    <h4 class="p-4 text-center" style="font-size: 18px;font-weight: 700;">Weekly Leaderboard</h4>
+
+                                </div>
+
+                                <table class="table table-dark mt-2">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">নং</th>
+                                            <th scope="col">নাম</th>
+                                            <th scope="col">মার্কস</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>100k</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>200k</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry the Bird</td>
+                                            <td>50k</td>
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                <span class="d-flex justify-content-center p-3">
+                                    <a href="./performance.html"> <button class="btn btn-warning fw-bold" style="border: none;">See All <i class="fas fa-arrow-right"></i></button></a>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+    </div>
+
+    <script src="~/Static/dist/apexcharts.min.js"></script>
+    <script src="~/Static/dist/apexcharts.js"></script>
+    <script src="~/Static/js/bootstrap.js"></script>
+    <script src="~/Static/js/apexchart.js"></script>
+    <script src="~/Static/js/question.js"></script>
+    <script src="~/Static/js/script.js"></script>
+
+</body>
+</html>
