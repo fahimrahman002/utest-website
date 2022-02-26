@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @Html.Partial("_CommonLinks")
+    @Styles.Render("~/css/profile.css")
+
+    <title>Profile</title>
+</head>
+<body>
+    <section>
+        @Html.Partial("_NavbarAfterLogin")
+
+        <!-- middle section start  -->
+        <section class="text-center p-4">
+            <h5 class="p-3 fw-bold">প্রোফাইল</h5>
+            <img src="~/Static/images/profile.jpg" style="width: 200px;height: auto; border-radius: 50%;" alt="profile">
+            <div class="row pt-3 container text-center m-auto ">
+                <div class="col-md-4 shadow me-2 responsive" style="width: 347px;">
+                    <h6>153</h6>
+                    <p>Rank</p>
+                </div>
+                <div class="col-md-4 shadow me-2 responsive" style="width: 347px;">
+                    <h6>153</h6>
+                    <p>Exam</p>
+                </div>
+                <div class="col-md-4 shadow  responsive" style="width: 347px;">
+                    <h6>153</h6>
+                    <p>Point</p>
+                </div>
+            </div>
+            <div>
+                <div class="row mt-5 overflow accuracy">
+                    <div class="col-md-4 shadow" id="chart">
+                        <h4>অ্যাকুরেসি</h4>
+                    </div>
+                    <div class="col-md-6 shadow ms-2 res-margin" id="chart1" style="width: 744px;">
+                        <h4>বিষয়ভিত্তিক অ্যাকুরেসি</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- middle section End  -->
+        @Html.Partial("_Footer")
+    </section>
+
+    <script src="~/Static/dist/apexcharts.min.js"></script>
+    <script src="~/Static/js/apexchart.js"></script>
+    <script src="~/Static/js/bootstrap.js"></script>
+
+</body>
+</html>

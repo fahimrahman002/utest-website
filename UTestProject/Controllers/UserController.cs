@@ -6,21 +6,16 @@ using System.Web.Mvc;
 
 namespace UTestProject.Controllers
 {
-    public class ExamController : Controller
+    public class UserController : Controller
     {
-        // GET: Exam
-        public ActionResult Mock()
+        // GET: User Profile
+        public ActionResult Profile()
         {
             return View();
         }
 
-        public ActionResult MockExam()
-        {
-            return View();
-        }
-
-
-        public ActionResult AllExam()
+        // GET: User settings
+        public ActionResult Settings()
         {
             return View();
         }

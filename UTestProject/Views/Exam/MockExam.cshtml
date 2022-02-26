@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @Html.Partial("_CommonLinks")
+    @Styles.Render("~/css/liveQuiz.css")
+    @Styles.Render("~/css/exam.css")
+    @Styles.Render("~/css/footer.css")
+
+    <title>MockExam</title>
+</head>
+<body>
+    <section>
+        <!-- dashboard Menu start -->
+        <section class="dashboard">
+            @Html.Partial("_NavbarAfterLogin")
+
+        </section>
+        <!-- dashboard Menu End -->
+
+        <div>
+            <div class="text-center p-3" style="background: #fefce8">
+                <h5>পরীক্ষা</h5>
+                <h6>বিষয় সমুহঃ {{selected_subjects}}</h6>
+                <h6>সময়ঃ <b id="countDown">00:00</b> মিনিট</h6>
+                <h6>প্রতিটি প্রশ্নের পূর্ণমান 1 {% if neg_marking %}এবং ভুলপ্রতি 0.25 মার্ক কাটা যাবে{% endif %} </h6>
+            </div>
+        </div>
+        <form action="{% url 'exam_submit' %}" method="POST">
+            <input value="exam_duration" hidden name="exam_duration">
+            <input value="question_id_list_str" hidden name="question_id_list_str">
+            <input value="only_mistakes" hidden name="only_mistakes">
+            <input value="neg_marking" hidden name="neg_marking">
+            <input value="selected_subjects_title" hidden name="selected_subjects_title">
+            <input value="selected_topics_title" hidden name="selected_topics_title">
+            <input value="question_standard_id" hidden name="question_standard_id">
+            <div class="container info_box p-4">
+                <div class="ques-list">
+                    <div class="d-flex justify-content-between">
+
+                        <div class="ques-text">
+                            <h5 class='p-2 ques-text'>
+                                1 .
+                                <script>document.write("Question title here")</script>
+                            </h5>
+                        </div>
+                        <input type="checkbox" hidden id="checkbox_bookmark_1" name="bookmark_1">
+                        <img id="bookmark_1" onclick="bookmark('bookmark_1');" class="res" src="~/Static/images/bookmark.svg" alt="">
+                    </div>
+                    <div>
+                        <div class="row ques-option mx-auto">
+                            <div class="col-md-5 option m-2">
+                                <h6 class="p-3">
+                                    <input class="form-check-input me-2" type="radio" value="option_a" name="optionRadioBtn_1" id="1_1_1">
+                                    <label class="form-check-label" for="1_1_1">
+                                        <script>document.write("Option A")</script>
+                                    </label>
+                                </h6>
+                            </div>
+                            <div class="col-md-5 option m-2">
+                                <h6 class="p-3">
+                                    <input class="form-check-input me-2" type="radio" value="option_b" name="optionRadioBtn_1" id="1_1_2">
+                                    <label class="form-check-label" for="1_1_2">
+                                        <script>document.write("Option B")</script>
+                                    </label>
+                                </h6>
+                            </div>
+                            <div class="col-md-5 option m-2">
+                                <h6 class="p-3">
+                                    <input class="form-check-input me-2" type="radio" value="option_c" name="optionRadioBtn_{{question.id}}" id="1_1_3">
+                                    <label class="form-check-label" for="1_1_3">
+                                        <script>document.write("Option C")</script>
+                                    </label>
+                                </h6>
+                            </div>
+                            <div class="col-md-5 option m-2">
+                                <h6 class="p-3">
+                                    <input class="form-check-input me-2" type="radio" value="option_d" name="optionRadioBtn_{{question.id}}" id="1_1_4">
+                                    <label class="form-check-label" for="1_1_4">
+                                        <script>document.write("Option D")</script>
+                                    </label>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;" class="mt-3 pb-3 mb-3">
+                <button type="submit" id="submitBtn" class="btn btn-warning fw-bold">সাবমিট</button>
+            </div>
+        </form>
+    </section>
+    <script src="~/Static/js/bootstrap.js"></script>
+    <script src="~/Static/js/question.js"></script>
+    <script>
+        const countDownEl = document.getElementById('countDown');
+        const startingMinutes = 10;
+        var time = startingMinutes * 60;
+
+        var timer = setInterval(updateCountDown, 1000);
+
+
+        function updateCountDown() {
+            if (time == 0) {
+                console.log("Times up.")
+                clearInterval(timer);
+                toastr.warning("Time's up! Never give up. Better luck next time.");
+                document.getElementById("submitBtn").disabled = true;
+            }
+            var minutes = Math.floor(time / 60);
+            var seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countDownEl.innerHTML = `${minutes}:${seconds}`;
+            time--;
+        }
+        function bookmark(bookmark_id) {
+            const image = document.getElementById(bookmark_id);
+            const bookmark_checkbox = document.getElementById("checkbox_" + bookmark_id);
+            console.log(image)
+            console.log(bookmark_checkbox)
+            if (bookmark_checkbox.checked) {
+                bookmark_checkbox.checked = false;
+                image.src = "~/Static/images/bookmark.svg";
+            } else {
+                bookmark_checkbox.checked = true;
+                image.src = "~/Static/images/bookmark-fill.svg";
+            }
+        }
+
+
+    </script>
+</body>
+</html>

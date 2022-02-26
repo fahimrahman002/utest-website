@@ -63,6 +63,10 @@ namespace UTestProject
 
 
             //ScriptBundle
+
+            bundles.Add(new ScriptBundle("~/js/bootstrap.js")
+                .Include("~/Static/js/bootstrap.js"));
+
             bundles.Add(new ScriptBundle("~/js/bootstrap.js")
                 .Include("~/Static/js/bootstrap.js"));
 
