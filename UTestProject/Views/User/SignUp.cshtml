@@ -9,20 +9,22 @@
 <head>
     @Html.Partial("_CommonLinks")
     <link rel="stylesheet" href="~/Static/css/login.css" />
+
     <title>Sign Up</title>
 </head>
 <body>
+
     <div class="signup-form p-md-4">
         <!-- signup form start  -->
         <div class="signUp-form">
-            <h2 class="text-dark text-center mt-2 p-4 fw-bold"><a href="/index.html" style="text-decoration: none;color:#000">U<span class="text-warning">Test</a></span></h2>
+            <h2 class="text-dark text-center mt-2 p-4 fw-bold"><a href="/" style="text-decoration: none;color:#000">U<span class="text-warning">Test</a></span></h2>
 
             <div class="row">
                 <div class="col-md-6 p-3">
                     <img class="img-fluid" src="~/Static/images/signup.svg" />
                 </div>
                 <div class="col-md-6">
-                    @using (Html.BeginForm("SignUp", "Home"))
+                    @using (Html.BeginForm("SignUp", "User"))
                     {
                         <form class="login p-5">
                             <div class="mb-3">
@@ -60,7 +62,7 @@
                                     </a>
                                 </button>
 
-                                <h6 class="text-center p-2" style="color:#000">Already have an account?<a href="~/Home/Login" style="text-decoration: none;"> Login</a></h6>
+                                <h6 class="text-center p-2" style="color:#000">Already have an account?<a href="~/User/Login" style="text-decoration: none;"> Login</a></h6>
                         </form>
                     }
                 </div>
@@ -70,6 +72,32 @@
         <!-- signup form end  -->
 
     </div>
+    @if (ViewData["MessageText"] != null && @ViewData["MessageType"] != null)
+    {
+        <script>
+        var type = "@ViewData["MessageType"]";
+        var message = "@ViewData["MessageText"]";
+        toastr.options.timeOut = 2000;
+        switch (type) {
+            case "info":
+                toastr.info(message);
+                break;
+            case "success":
+                toastr.success(message);
+                break;
+            case "warning":
+                toastr.warning(message);
+                break;
+            case "error":
+                toastr.error(message);
+                break;
+            default:
+                toastr.error("An error occurred");
+        }
+        </script>
+
+    }
+
 </body>
 </html>
 
