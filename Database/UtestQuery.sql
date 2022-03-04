@@ -7,7 +7,7 @@ CREATE TABLE Student (
     Password varchar(30),
 	Category varchar(30)
 );
-
+ALTER TABLE Student ADD UNIQUE(Email);
 SELECT * FROM Student
 --DROP TABLE Student
 --DELETE FROM Student
