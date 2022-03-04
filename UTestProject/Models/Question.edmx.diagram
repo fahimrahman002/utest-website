@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9e16313a6344e0e86c2db02a694600d" Name="Diagram1">
+        <EntityTypeShape EntityType="QuestionDbModel.Category" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestionDbModel.Question" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestionDbModel.Student" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestionDbModel.Subject" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="QuestionDbModel.FK__Question__Catego__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestionDbModel.FK__Student__Categor__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestionDbModel.FK__Subject__Categor__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestionDbModel.FK__Question__Subjec__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

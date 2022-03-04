@@ -48,6 +48,7 @@
                                 </a>
                             </button>
                             <h6 class="text-center p-2" style="color:#000">Don't have an account?<a href="~/User/SignUp" style="text-decoration: none;"> Register</a></h6>
+                        </div>
                     </form>
                 }
 
@@ -55,8 +56,30 @@
 
         </div>
     </div>
-    <!-- login form start  -->
-    <!-- login form end  -->
-    </div>
+    @if (ViewData["MessageText"] != null && ViewData["MessageType"] != null)
+    {
+        <script>
+        var type = "@ViewData["MessageType"]";
+        var message = "@ViewData["MessageText"]";
+        toastr.options.timeOut = 2000;
+        switch (type) {
+            case "info":
+                toastr.info(message);
+                break;
+            case "success":
+                toastr.success(message);
+                break;
+            case "warning":
+                toastr.warning(message);
+                break;
+            case "error":
+                toastr.error(message);
+                break;
+            default:
+                toastr.error("An error occurred");
+        }
+        </script>
+
+    }
 </body>
 </html>

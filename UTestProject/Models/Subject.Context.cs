@@ -13,10 +13,10 @@ namespace UTestProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StudentDbEntities : DbContext
+    public partial class SubjectDbEntities : DbContext
     {
-        public StudentDbEntities()
-            : base("name=StudentDbEntities")
+        public SubjectDbEntities()
+            : base("name=SubjectDbEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace UTestProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }

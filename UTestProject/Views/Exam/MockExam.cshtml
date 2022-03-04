@@ -34,6 +34,7 @@
                 <h6>প্রতিটি প্রশ্নের পূর্ণমান 1 {% if neg_marking %}এবং ভুলপ্রতি 0.25 মার্ক কাটা যাবে{% endif %} </h6>
             </div>
         </div>
+
         <form action="{% url 'exam_submit' %}" method="POST">
             <input value="exam_duration" hidden name="exam_duration">
             <input value="question_id_list_str" hidden name="question_id_list_str">

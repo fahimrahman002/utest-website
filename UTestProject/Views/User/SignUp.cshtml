@@ -1,5 +1,4 @@
 ﻿
-@model List<UTestProject.Models.Category>
 @{
     Layout = null;
 }
@@ -47,9 +46,9 @@
                             <div class="mb-3">
                                 <label for="categoryInput" class="form-label">Category</label>
                                 <select class="form-select" id="categoryInput" name="categoryInput" aria-label="Default select example">
-                                    @foreach (var item in Model)
+                                    @foreach (var item in ViewBag.categories)
                                     {
-                                        <option value="@item.Title">@item.Title</option>
+                                        <option value="@item.ID">@item.Title</option>
                                     }
 
                                 </select>

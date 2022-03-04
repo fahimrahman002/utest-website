@@ -12,15 +12,20 @@ namespace UTestProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Question
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string About { get; set; }
         public Nullable<int> Category { get; set; }
+        public Nullable<int> Subject { get; set; }
+        public string Title { get; set; }
+        public string Option_a { get; set; }
+        public string Option_b { get; set; }
+        public string Option_c { get; set; }
+        public string Option_d { get; set; }
+        public string Correct_option { get; set; }
+        public string Solution { get; set; }
     
         public virtual Category Category1 { get; set; }
+        public virtual Subject Subject1 { get; set; }
     }
 }

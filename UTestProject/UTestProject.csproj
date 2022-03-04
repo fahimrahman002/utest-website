@@ -141,7 +141,7 @@
       <DependentUpon>Category.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>Category.tt</DependentUpon>
+      <DependentUpon>Question.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -153,13 +153,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Category.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Question.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Question.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>Question.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Question.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Question.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Student.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Student.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>Student.tt</DependentUpon>
+      <DependentUpon>Question.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -170,6 +188,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Student.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subject.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
+      <DependentUpon>Question.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subject.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subject.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,6 +222,16 @@
       <DependentUpon>Category.edmx</DependentUpon>
       <LastGenOutput>Category1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Question.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Question.edmx</DependentUpon>
+      <LastGenOutput>Question.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Question.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Question.edmx</DependentUpon>
+      <LastGenOutput>Question1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Student.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Student.edmx</DependentUpon>
@@ -195,6 +241,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Student.edmx</DependentUpon>
       <LastGenOutput>Student1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Subject.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Subject.edmx</DependentUpon>
+      <LastGenOutput>Subject.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Subject.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Subject.edmx</DependentUpon>
+      <LastGenOutput>Subject1.cs</LastGenOutput>
     </Content>
     <Content Include="Static\dist\apexcharts.amd.js" />
     <Content Include="Static\dist\apexcharts.amd.js.LICENSE.txt" />
@@ -660,6 +716,20 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\Category.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Category.edmx.diagram">
+      <DependentUpon>Category.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Subject.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Subject.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Subject.edmx.diagram">
+      <DependentUpon>Subject.edmx</DependentUpon>
+    </Content>
     <EntityDeploy Include="Models\Student.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Student.Designer.cs</LastGenOutput>
@@ -667,12 +737,12 @@
     <Content Include="Models\Student.edmx.diagram">
       <DependentUpon>Student.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\Category.edmx">
+    <EntityDeploy Include="Models\Question.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+      <LastGenOutput>Question.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Category.edmx.diagram">
-      <DependentUpon>Category.edmx</DependentUpon>
+    <Content Include="Models\Question.edmx.diagram">
+      <DependentUpon>Question.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_CommonLinks.cshtml" />

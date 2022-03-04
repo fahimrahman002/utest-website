@@ -19,161 +19,73 @@
     <h4 class="container mt-3 text-center p-4" style="font-size:30px; line-height: 28px;font-weight: 700;">Create Your Own Exam</h4>
 
     <section class="container mt-4 shadow">
-        <div style="background: #fff;" class="">
-            <h6 class=" mt-3 p-2">প্রশ্নের ধরন</h6>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">সকল</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">পূর্বের ভুল/দাগানো</label>
-            </div>
-            <h6 class=" mt-3">কী পরীক্ষা দিবে?</h6>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Select</option>
-                <option value="4">SSC Academic</option>
-                <option value="5">HSC Academic</option>
-                <option value="1">Engineering</option>
-                <option value="2">Medical</option>
-                <option value="3">Varsity</option>
-            </select>
-            <h6 class=" mt-3">বিষয়</h6>
-            <div x-data="{
-                 topics:[{&#34;name&#34;:&#34;পদার্থবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;ভৌতজগত ও পরিমাপ&#34;,&#34;id&#34;:&#34;phys_1_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_1&#34;]},{&#34;name&#34;:&#34;ভেক্টর&#34;,&#34;id&#34;:&#34;phys_1_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_2&#34;]},{&#34;name&#34;:&#34;গতিবিদ্যা&#34;,&#34;id&#34;:&#34;phys_1_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_3&#34;]},{&#34;name&#34;:&#34;নিউটনিয়ান বলবিদ্যা&#34;,&#34;id&#34;:&#34;phys_1_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_4&#34;]},{&#34;name&#34;:&#34;কাজ, ক্ষমতা, ও শক্তি&#34;,&#34;id&#34;:&#34;phys_1_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_5&#34;]},{&#34;name&#34;:&#34;মহাকর্ষ ও অভিকর্ষ&#34;,&#34;id&#34;:&#34;phys_1_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_6&#34;]},{&#34;name&#34;:&#34;পদার্থের গাঠনিক ধর্ম&#34;,&#34;id&#34;:&#34;phys_1_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_7&#34;]},{&#34;name&#34;:&#34;পর্যায়বৃত্ত গতি&#34;,&#34;id&#34;:&#34;phys_1_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_8&#34;]},{&#34;name&#34;:&#34;তরঙ্গ&#34;,&#34;id&#34;:&#34;phys_1_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_9&#34;]},{&#34;name&#34;:&#34;আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব&#34;,&#34;id&#34;:&#34;phys_1_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;phys_1&#34;},&#34;ancestors&#34;:[&#34;phys_1_10&#34;]}],&#34;id&#34;:&#34;phys_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;পদার্থবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys&#34;},&#34;ancestors&#34;:[&#34;phys_1_1&#34;,&#34;phys_1_2&#34;,&#34;phys_1_3&#34;,&#34;phys_1_4&#34;,&#34;phys_1_5&#34;,&#34;phys_1_6&#34;,&#34;phys_1_7&#34;,&#34;phys_1_8&#34;,&#34;phys_1_9&#34;,&#34;phys_1_10&#34;]},{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;তাপগতিবিদ্যা&#34;,&#34;id&#34;:&#34;phys_2_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_1&#34;]},{&#34;name&#34;:&#34;স্থির তড়িৎ&#34;,&#34;id&#34;:&#34;phys_2_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_2&#34;]},{&#34;name&#34;:&#34;চল তড়িৎ&#34;,&#34;id&#34;:&#34;phys_2_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_3&#34;]},{&#34;name&#34;:&#34;তড়িৎ প্রবাহের চৌম্বক ক্রিয়া ও চৌম্বকত্ব&#34;,&#34;id&#34;:&#34;phys_2_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_4&#34;]},{&#34;name&#34;:&#34;তড়িৎচৌম্বকীয় আবেশ&#34;,&#34;id&#34;:&#34;phys_2_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_5&#34;]},{&#34;name&#34;:&#34;জ্যামিতিক আলোকবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys_2_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_6&#34;]},{&#34;name&#34;:&#34;ভৌত আলোকবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys_2_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_7&#34;]},{&#34;name&#34;:&#34;আধুনিক পদার্থ বিজ্ঞান&#34;,&#34;id&#34;:&#34;phys_2_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_8&#34;]},{&#34;name&#34;:&#34;পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys_2_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_9&#34;]},{&#34;name&#34;:&#34;সেমিকন্ডাক্টর ও ইলেক্ট্রনিক্স&#34;,&#34;id&#34;:&#34;phys_2_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_10&#34;]},{&#34;name&#34;:&#34;জ্যোতির্বিজ্ঞান&#34;,&#34;id&#34;:&#34;phys_2_11&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;phys_2&#34;},&#34;ancestors&#34;:[&#34;phys_2_11&#34;]}],&#34;id&#34;:&#34;phys_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;পদার্থবিজ্ঞান&#34;,&#34;id&#34;:&#34;phys&#34;},&#34;ancestors&#34;:[&#34;phys_2_1&#34;,&#34;phys_2_2&#34;,&#34;phys_2_3&#34;,&#34;phys_2_4&#34;,&#34;phys_2_5&#34;,&#34;phys_2_6&#34;,&#34;phys_2_7&#34;,&#34;phys_2_8&#34;,&#34;phys_2_9&#34;,&#34;phys_2_10&#34;,&#34;phys_2_11&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;phys_1_1&#34;,&#34;phys_1_2&#34;,&#34;phys_1_3&#34;,&#34;phys_1_4&#34;,&#34;phys_1_5&#34;,&#34;phys_1_6&#34;,&#34;phys_1_7&#34;,&#34;phys_1_8&#34;,&#34;phys_1_9&#34;,&#34;phys_1_10&#34;,&#34;phys_2_1&#34;,&#34;phys_2_2&#34;,&#34;phys_2_3&#34;,&#34;phys_2_4&#34;,&#34;phys_2_5&#34;,&#34;phys_2_6&#34;,&#34;phys_2_7&#34;,&#34;phys_2_8&#34;,&#34;phys_2_9&#34;,&#34;phys_2_10&#34;,&#34;phys_2_11&#34;]},{&#34;name&#34;:&#34;রসায়ন&#34;,&#34;id&#34;:&#34;chem&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;ল্যাবরেটরির নিরাপদ ব্যবহার&#34;,&#34;id&#34;:&#34;chem_1_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;chem_1&#34;},&#34;ancestors&#34;:[&#34;chem_1_1&#34;]},{&#34;name&#34;:&#34;গুণগত রসায়ন&#34;,&#34;id&#34;:&#34;chem_1_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;chem_1&#34;},&#34;ancestors&#34;:[&#34;chem_1_2&#34;]},{&#34;name&#34;:&#34;মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন&#34;,&#34;id&#34;:&#34;chem_1_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;chem_1&#34;},&#34;ancestors&#34;:[&#34;chem_1_3&#34;]},{&#34;name&#34;:&#34;রাসায়নিক পরিবর্তন&#34;,&#34;id&#34;:&#34;chem_1_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;chem_1&#34;},&#34;ancestors&#34;:[&#34;chem_1_4&#34;]},{&#34;name&#34;:&#34;কর্মমুখী রসায়ন&#34;,&#34;id&#34;:&#34;chem_1_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;chem_1&#34;},&#34;ancestors&#34;:[&#34;chem_1_5&#34;]}],&#34;id&#34;:&#34;chem_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;রসায়ন&#34;,&#34;id&#34;:&#34;chem&#34;},&#34;ancestors&#34;:[&#34;chem_1_1&#34;,&#34;chem_1_2&#34;,&#34;chem_1_3&#34;,&#34;chem_1_4&#34;,&#34;chem_1_5&#34;]},{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;পরিবেশ রসায়ন&#34;,&#34;id&#34;:&#34;chem_2_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;chem_2&#34;},&#34;ancestors&#34;:[&#34;chem_2_1&#34;]},{&#34;name&#34;:&#34;জৈব যৌগ&#34;,&#34;id&#34;:&#34;chem_2_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;chem_2&#34;},&#34;ancestors&#34;:[&#34;chem_2_2&#34;]},{&#34;name&#34;:&#34;পরিমাণগত রসায়ন&#34;,&#34;id&#34;:&#34;chem_2_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;chem_2&#34;},&#34;ancestors&#34;:[&#34;chem_2_3&#34;]},{&#34;name&#34;:&#34;তড়িৎ রসায়ন&#34;,&#34;id&#34;:&#34;chem_2_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;chem_2&#34;},&#34;ancestors&#34;:[&#34;chem_2_4&#34;]},{&#34;name&#34;:&#34;অর্থনৈতিক রসায়ন&#34;,&#34;id&#34;:&#34;chem_2_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;chem_2&#34;},&#34;ancestors&#34;:[&#34;chem_2_5&#34;]}],&#34;id&#34;:&#34;chem_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;রসায়ন&#34;,&#34;id&#34;:&#34;chem&#34;},&#34;ancestors&#34;:[&#34;chem_2_1&#34;,&#34;chem_2_2&#34;,&#34;chem_2_3&#34;,&#34;chem_2_4&#34;,&#34;chem_2_5&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;chem_1_1&#34;,&#34;chem_1_2&#34;,&#34;chem_1_3&#34;,&#34;chem_1_4&#34;,&#34;chem_1_5&#34;,&#34;chem_2_1&#34;,&#34;chem_2_2&#34;,&#34;chem_2_3&#34;,&#34;chem_2_4&#34;,&#34;chem_2_5&#34;]},{&#34;name&#34;:&#34;উচ্চতর গণিত&#34;,&#34;id&#34;:&#34;math&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;ম্যাট্রিক্স ও নির্ণায়ক&#34;,&#34;id&#34;:&#34;math_1_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_1&#34;]},{&#34;name&#34;:&#34;ভেক্টর&#34;,&#34;id&#34;:&#34;math_1_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_2&#34;]},{&#34;name&#34;:&#34;সরলরেখা&#34;,&#34;id&#34;:&#34;math_1_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_3&#34;]},{&#34;name&#34;:&#34;বৃত্ত&#34;,&#34;id&#34;:&#34;math_1_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_4&#34;]},{&#34;name&#34;:&#34;বিন্যাস ও সমাবেশ&#34;,&#34;id&#34;:&#34;math_1_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_5&#34;]},{&#34;name&#34;:&#34;ত্রিকোণমিতিক অনুপাত&#34;,&#34;id&#34;:&#34;math_1_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_6&#34;]},{&#34;name&#34;:&#34;সংযুক্ত ও যৌগিক কোণের ত্রিকোণমিতিক অনুপাত&#34;,&#34;id&#34;:&#34;math_1_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_7&#34;]},{&#34;name&#34;:&#34;ফাংশন ও ফাংশনের লেখচিত্র&#34;,&#34;id&#34;:&#34;math_1_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_8&#34;]},{&#34;name&#34;:&#34;অন্তরীকরণ&#34;,&#34;id&#34;:&#34;math_1_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_9&#34;]},{&#34;name&#34;:&#34;যোগজীকরণ&#34;,&#34;id&#34;:&#34;math_1_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;math_1&#34;},&#34;ancestors&#34;:[&#34;math_1_10&#34;]}],&#34;id&#34;:&#34;math_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;উচ্চতর গণিত&#34;,&#34;id&#34;:&#34;math&#34;},&#34;ancestors&#34;:[&#34;math_1_1&#34;,&#34;math_1_2&#34;,&#34;math_1_3&#34;,&#34;math_1_4&#34;,&#34;math_1_5&#34;,&#34;math_1_6&#34;,&#34;math_1_7&#34;,&#34;math_1_8&#34;,&#34;math_1_9&#34;,&#34;math_1_10&#34;]},{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;বাস্তব সংখ্যা ও অসমতা&#34;,&#34;id&#34;:&#34;math_2_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_1&#34;]},{&#34;name&#34;:&#34;যোগাশ্রয়ী প্রোগ্রাম&#34;,&#34;id&#34;:&#34;math_2_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_2&#34;]},{&#34;name&#34;:&#34;জটিল সংখ্যা&#34;,&#34;id&#34;:&#34;math_2_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_3&#34;]},{&#34;name&#34;:&#34;বহুপদী ও বহুপদী সমীকরণ&#34;,&#34;id&#34;:&#34;math_2_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_4&#34;]},{&#34;name&#34;:&#34;দ্বিপদী বিস্তৃতি&#34;,&#34;id&#34;:&#34;math_2_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_5&#34;]},{&#34;name&#34;:&#34;কণিক&#34;,&#34;id&#34;:&#34;math_2_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_6&#34;]},{&#34;name&#34;:&#34;বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ&#34;,&#34;id&#34;:&#34;math_2_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_7&#34;]},{&#34;name&#34;:&#34;স্থিতিবিদ্যা&#34;,&#34;id&#34;:&#34;math_2_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_8&#34;]},{&#34;name&#34;:&#34;সমতলে বস্তুকণার গতি&#34;,&#34;id&#34;:&#34;math_2_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_9&#34;]},{&#34;name&#34;:&#34;বিস্তার পরিমাপ ও সম্ভাবনা&#34;,&#34;id&#34;:&#34;math_2_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;math_2&#34;},&#34;ancestors&#34;:[&#34;math_2_10&#34;]}],&#34;id&#34;:&#34;math_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;উচ্চতর গণিত&#34;,&#34;id&#34;:&#34;math&#34;},&#34;ancestors&#34;:[&#34;math_2_1&#34;,&#34;math_2_2&#34;,&#34;math_2_3&#34;,&#34;math_2_4&#34;,&#34;math_2_5&#34;,&#34;math_2_6&#34;,&#34;math_2_7&#34;,&#34;math_2_8&#34;,&#34;math_2_9&#34;,&#34;math_2_10&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;math_1_1&#34;,&#34;math_1_2&#34;,&#34;math_1_3&#34;,&#34;math_1_4&#34;,&#34;math_1_5&#34;,&#34;math_1_6&#34;,&#34;math_1_7&#34;,&#34;math_1_8&#34;,&#34;math_1_9&#34;,&#34;math_1_10&#34;,&#34;math_2_1&#34;,&#34;math_2_2&#34;,&#34;math_2_3&#34;,&#34;math_2_4&#34;,&#34;math_2_5&#34;,&#34;math_2_6&#34;,&#34;math_2_7&#34;,&#34;math_2_8&#34;,&#34;math_2_9&#34;,&#34;math_2_10&#34;]},{&#34;name&#34;:&#34;জীববিজ্ঞান&#34;,&#34;id&#34;:&#34;bio&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;কোষ ও এর গঠন&#34;,&#34;id&#34;:&#34;bio_1_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_1&#34;]},{&#34;name&#34;:&#34;কোষ বিভাজন&#34;,&#34;id&#34;:&#34;bio_1_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_2&#34;]},{&#34;name&#34;:&#34;কোষ রসায়ন&#34;,&#34;id&#34;:&#34;bio_1_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_3&#34;]},{&#34;name&#34;:&#34;অণুজীব&#34;,&#34;id&#34;:&#34;bio_1_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_4&#34;]},{&#34;name&#34;:&#34;শৈবাল ও ছত্রাক&#34;,&#34;id&#34;:&#34;bio_1_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_5&#34;]},{&#34;name&#34;:&#34;ব্রায়ফাইটা ও টেরিডোফাইটা&#34;,&#34;id&#34;:&#34;bio_1_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_6&#34;]},{&#34;name&#34;:&#34;নগ্নজিবি ও আবৃতবীজী উদ্ভিদ&#34;,&#34;id&#34;:&#34;bio_1_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_7&#34;]},{&#34;name&#34;:&#34;টিসু ও টিসুটন্ত্র&#34;,&#34;id&#34;:&#34;bio_1_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_8&#34;]},{&#34;name&#34;:&#34;উদ্ভিদ শরীরতত্ত্ব&#34;,&#34;id&#34;:&#34;bio_1_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_9&#34;]},{&#34;name&#34;:&#34;উদ্ভিদ প্রজনন&#34;,&#34;id&#34;:&#34;bio_1_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_10&#34;]},{&#34;name&#34;:&#34;বিস্তার ও সংরক্ষণ&#34;,&#34;id&#34;:&#34;bio_1_11&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_11&#34;]},{&#34;name&#34;:&#34;জিবপ্রযুক্তি&#34;,&#34;id&#34;:&#34;bio_1_12&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_12&#34;]},{&#34;name&#34;:&#34;জীবের পরিবেশ&#34;,&#34;id&#34;:&#34;bio_1_13&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;১ম পত্র&#34;,&#34;id&#34;:&#34;bio_1&#34;},&#34;ancestors&#34;:[&#34;bio_1_13&#34;]}],&#34;id&#34;:&#34;bio_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;জীববিজ্ঞান&#34;,&#34;id&#34;:&#34;bio&#34;},&#34;ancestors&#34;:[&#34;bio_1_1&#34;,&#34;bio_1_2&#34;,&#34;bio_1_3&#34;,&#34;bio_1_4&#34;,&#34;bio_1_5&#34;,&#34;bio_1_6&#34;,&#34;bio_1_7&#34;,&#34;bio_1_8&#34;,&#34;bio_1_9&#34;,&#34;bio_1_10&#34;,&#34;bio_1_11&#34;,&#34;bio_1_12&#34;,&#34;bio_1_13&#34;]},{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;প্রাণীর ভিন্নতা ও শ্রেণিবিন্যাস&#34;,&#34;id&#34;:&#34;bio_2_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_1&#34;]},{&#34;name&#34;:&#34;প্রাণীর পরিচিতি&#34;,&#34;id&#34;:&#34;bio_2_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_2&#34;]},{&#34;name&#34;:&#34;পরিপাক ও শোষণ&#34;,&#34;id&#34;:&#34;bio_2_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_3&#34;]},{&#34;name&#34;:&#34;রক্ত সঞ্চালন&#34;,&#34;id&#34;:&#34;bio_2_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_4&#34;]},{&#34;name&#34;:&#34;শ্বাসক্রিয়া শ্বসন&#34;,&#34;id&#34;:&#34;bio_2_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_5&#34;]},{&#34;name&#34;:&#34;বর্জ্য নিষ্কাশন&#34;,&#34;id&#34;:&#34;bio_2_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_6&#34;]},{&#34;name&#34;:&#34;চলন ও অঙ্গচালনা&#34;,&#34;id&#34;:&#34;bio_2_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_7&#34;]},{&#34;name&#34;:&#34;সমন্বয় ও নিয়ন্ত্রণ&#34;,&#34;id&#34;:&#34;bio_2_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_8&#34;]},{&#34;name&#34;:&#34;মানব জীবনের ধারাবাহিকতা&#34;,&#34;id&#34;:&#34;bio_2_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_9&#34;]},{&#34;name&#34;:&#34;মানবদেহের প্রতিরক্ষা&#34;,&#34;id&#34;:&#34;bio_2_10&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_10&#34;]},{&#34;name&#34;:&#34;জিনতত্ত্ব ও বিবর্তন&#34;,&#34;id&#34;:&#34;bio_2_11&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_11&#34;]},{&#34;name&#34;:&#34;প্রাণীর আচরণ&#34;,&#34;id&#34;:&#34;bio_2_12&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;২য় পত্র&#34;,&#34;id&#34;:&#34;bio_2&#34;},&#34;ancestors&#34;:[&#34;bio_2_12&#34;]}],&#34;id&#34;:&#34;bio_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;জীববিজ্ঞান&#34;,&#34;id&#34;:&#34;bio&#34;},&#34;ancestors&#34;:[&#34;bio_2_1&#34;,&#34;bio_2_2&#34;,&#34;bio_2_3&#34;,&#34;bio_2_4&#34;,&#34;bio_2_5&#34;,&#34;bio_2_6&#34;,&#34;bio_2_7&#34;,&#34;bio_2_8&#34;,&#34;bio_2_9&#34;,&#34;bio_2_10&#34;,&#34;bio_2_11&#34;,&#34;bio_2_12&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;bio_1_1&#34;,&#34;bio_1_2&#34;,&#34;bio_1_3&#34;,&#34;bio_1_4&#34;,&#34;bio_1_5&#34;,&#34;bio_1_6&#34;,&#34;bio_1_7&#34;,&#34;bio_1_8&#34;,&#34;bio_1_9&#34;,&#34;bio_1_10&#34;,&#34;bio_1_11&#34;,&#34;bio_1_12&#34;,&#34;bio_1_13&#34;,&#34;bio_2_1&#34;,&#34;bio_2_2&#34;,&#34;bio_2_3&#34;,&#34;bio_2_4&#34;,&#34;bio_2_5&#34;,&#34;bio_2_6&#34;,&#34;bio_2_7&#34;,&#34;bio_2_8&#34;,&#34;bio_2_9&#34;,&#34;bio_2_10&#34;,&#34;bio_2_11&#34;,&#34;bio_2_12&#34;]},{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;বাংলার ইতিহাস&#34;,&#34;id&#34;:&#34;gen_1&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_1&#34;]},{&#34;name&#34;:&#34;সংবিধান&#34;,&#34;id&#34;:&#34;gen_2&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_2&#34;]},{&#34;name&#34;:&#34;বাংলাদেশের জাতীয় বিষয়াবলি&#34;,&#34;id&#34;:&#34;gen_3&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_3&#34;]},{&#34;name&#34;:&#34;বাংলাদেশের সরকার ব্যবস্থা&#34;,&#34;id&#34;:&#34;gen_4&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_4&#34;]},{&#34;name&#34;:&#34;উপজাতি, ক্ষুদ্র জাতিসত্তা, নৃ-গোষ্ঠী&#34;,&#34;id&#34;:&#34;gen_5&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_5&#34;]},{&#34;name&#34;:&#34;বিখ্যাত ব্যক্তি&#34;,&#34;id&#34;:&#34;gen_6&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_6&#34;]},{&#34;name&#34;:&#34;সামাজিক সমস্যা&#34;,&#34;id&#34;:&#34;gen_7&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_7&#34;]},{&#34;name&#34;:&#34;বাংলাদেশের ভৌগোলিক অবস্থান এবং সীমানা&#34;,&#34;id&#34;:&#34;gen_8&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_8&#34;]},{&#34;name&#34;:&#34;বাংলাদেশের জলবায়ু এবং ভূ-প্রকৃতি&#34;,&#34;id&#34;:&#34;gen_9&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_9&#34;]},{&#34;name&#34;:&#34;অন্যান্য&#34;,&#34;id&#34;:&#34;gen_all&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;,&#34;id&#34;:&#34;gen&#34;},&#34;ancestors&#34;:[&#34;gen_all&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;gen_1&#34;,&#34;gen_2&#34;,&#34;gen_3&#34;,&#34;gen_4&#34;,&#34;gen_5&#34;,&#34;gen_6&#34;,&#34;gen_7&#34;,&#34;gen_8&#34;,&#34;gen_9&#34;,&#34;gen_all&#34;]},{&#34;name&#34;:&#34;English&#34;,&#34;id&#34;:&#34;eng&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;eng_all&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;English&#34;,&#34;id&#34;:&#34;eng&#34;},&#34;ancestors&#34;:[&#34;eng_all&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;eng_all&#34;]},{&#34;name&#34;:&#34;বাংলা&#34;,&#34;id&#34;:&#34;bang&#34;,&#34;children&#34;:[{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;bang_all&#34;,&#34;parent&#34;:{&#34;name&#34;:&#34;বাংলা&#34;,&#34;id&#34;:&#34;bang&#34;},&#34;ancestors&#34;:[&#34;bang_all&#34;]}],&#34;parent&#34;:{&#34;name&#34;:&#34;সকল&#34;,&#34;id&#34;:&#34;hsc&#34;},&#34;ancestors&#34;:[&#34;bang_all&#34;]}],selected:'Select',selectedSubjects:[],
-                 notSelected: [{&#34;id&#34;:&#34;phys&#34;,&#34;name&#34;:&#34;পদার্থবিজ্ঞান&#34;},{&#34;id&#34;:&#34;chem&#34;,&#34;name&#34;:&#34;রসায়ন&#34;},{&#34;id&#34;:&#34;math&#34;,&#34;name&#34;:&#34;উচ্চতর গণিত&#34;},{&#34;id&#34;:&#34;bio&#34;,&#34;name&#34;:&#34;জীববিজ্ঞান&#34;},{&#34;id&#34;:&#34;gen&#34;,&#34;name&#34;:&#34;সাধারণ জ্ঞান&#34;},{&#34;id&#34;:&#34;eng&#34;,&#34;name&#34;:&#34;English&#34;},{&#34;id&#34;:&#34;bang&#34;,&#34;name&#34;:&#34;বাংলা&#34;}],
-                 selectedTopics: [],all:null,dad:null,get getSubjects() { return this.selectedSubjects.map(_=>
-                this.topics.find(x => x.id == _));}
-                }" class="d-flex flex-column">
-                <input x-model="selectedSubjects" hidden name="subjects" />
-                <div x-show="selectedSubjects.length > 0">
-                    <template x-for="sub in getSubjects" :key="sub.name">
+        @using (Html.BeginForm("MockExam", "Exam"))
+        {
+            <form method="POST">
+                <div style="background: #fff;" class="">
+                    <h6 class=" mt-3 p-2">প্রশ্নের ধরন</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">সকল</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">পূর্বের ভুল/দাগানো</label>
+                    </div>
+                    <h6 class=" mt-3">বিষয়</h6>
+                    <!-- Subject starts -->
+                    <div class="d-flex flex-column w-full p-2 mb-3 space-y-1 dark:text-white dark:bg-gray-900 rounded-lg bg-green-50">   
+                        <div x-show="sub.children" class="d-grid justify-content-between gap-3 text-sm md:d-grid-cols-2" style="background-color:#f7ff0385">
+                            <div class="space-y-1">
+                                <label class="d-flex align-items-center space-x-2">
+                                    <input type="checkbox" 
+                                    id="topics" class="topics" name="topics"value="phys_1">
+                                    <span style="margin-left: 1rem;" >পদার্থবিজ্ঞান</span>
 
-                        <div class="d-flex flex-column w-full p-2 mb-3 space-y-1 dark:text-white dark:bg-gray-900 rounded-lg bg-green-50">
-                            <div class='font-medium' x-text="sub.name"></div>
-                            <div x-show="sub.children" class="d-grid justify-content-between gap-3 text-sm md:d-grid-cols-2" style="background-color:#f7ff0385">
-                                <template x-for="child in sub.children" :key="child.name">
-                                    <div class="space-y-1">
-                                        <label class="d-flex align-items-center space-x-2">
-                                            <input type="checkbox"
-                                                   :value="child.id"
-                                                   x-model="selectedTopics"
-                                                   id="topics"
-                                                   class="topics"
-                                                   name="topics"
-                                                   x-on:change="
-                                                   if(child.children) {
-                                                   if(selectedTopics.find(_=> (_ == child.id))) {
-                                            selectedTopics = [...new Set( [...selectedTopics, ...child.children.map(({id}) => id)] )];
-                                            } else {
-                                            selectedTopics = selectedTopics.filter(_ => {
-                                            const found = child.children.find(x => x.id == _);
-                                            if(found) return false;
-                                            else return true;
-                                            })
-                                            }
-                                            }"
-                                            />
-                                            <span class="" x-text="child.name"></span>
+                                </label>
 
-                                        </label>
-
-                                        <template x-for="grandchild in child.children" :key="grandchild.id">
-                                            <label class="d-flex align-items-center ps-4 space-x-2">
-                                                <input type="checkbox"
-                                                       :value="grandchild.id"
-                                                       x-model="selectedTopics"
-                                                       name="topics"
-                                                       class="topics"
-                                                       x-on:change="
-                                                       all=true;
-                                                       dad=selectedTopics.find(_ => _ == child.id);
-                                                for(let i = 0; i < child.children.length; ++i) {
-                                                if(selectedTopics.find(_ => _ == child.children[i].id)) continue;
-                                                else{
-                                                all = false;
-                                                break;
-                                                }
-                                                }
-                                                if(dad && !all){
-                                                selectedTopics = selectedTopics.filter(_ => _ != child.id)
-                                                }
-                                                if(!dad && all) selectedTopics = [...selectedTopics, child.id]
-                                                "
-                                                />
-                                                <span x-text="grandchild.name"></span>
-                                            </label>
-
-                                        </template>
-
-                                    </div>
+                                <template x-for="grandchild in child.children" :key="grandchild.id">
+                                    <label class="d-flex align-items-center ps-4 space-x-2">
+                                        <input type="checkbox" :value="grandchild.id" x-model="selectedTopics" name="topics" class="topics">
+                                        <span x-text="grandchild.name"></span>
+                                    </label>
                                 </template>
-
-                                <!-- How to get time for subject -->
-                            </div>
-                            <label for="subNQ" class="form-label">প্রশ্নের সংখ্যা</label>
-                            <div>
-                                <input name="subNQ" type="number" required />
                             </div>
                         </div>
+                        <label for="numOfQuestions" class="form-label">প্রশ্নের সংখ্যা
+                        </label>
+                        <div>
+                            <input type="number" class="form-control" name="numOfQuestions" required="">
+                        </div>
+                    </div>
+                    <!-- Subject ends -->
 
-                    </template>
+                    <h6 class=" mt-3">সময়</h6>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="number" class="form-control" id="exampleFormControlInput1">
 
+                        </div>
+                        <div class="col-md-1">
+                            <h6 class="mt-3">মিনিট</h6>
+                        </div>
+                    </div>
                 </div>
-                <select x-model="selected"
-                        class="form-select"
-                        x-on:change="
-                        if(selected !='Select' ){
-                        selectedSubjects.push(selected);
-                        notSelected=notSelected.filter(_ =>
-                    _.id != selected);
-                    selected = 'Select'
-                    }"
-                    >
-                    <option value="Select">Select to Add Subjects</option>
-                    <template x-for="item in notSelected" :key="item.id">
-                        <option :value="item.id" x-text="item.name"></option>
-                    </template>
-
-                </select>
-
-            </div>
-
-            <!-- <select class="form-select" aria-label="Default select example">
-              <option selected>Select to Add Subjects</option>
-              <option value="1">পদার্থবিজ্ঞান</option>
-              <option value="2">রসায়ন</option>
-              <option value="3">উচ্চতর গণিত</option>
-              <option value="3">জীববিজ্ঞান</option>
-              <option value="3">সাধারণ জ্ঞান</option>
-              <option value="3">সাধারণ জ্ঞান</option>
-              <option value="3">বাংলা</option>
-              <option value="3">ICT</option>
-            </select> -->
-            <h6 class=" mt-3">সময়</h6>
-            <div class="row">
-                <div class="col-md-11">
-                    <input type="number" class="form-control" id="exampleFormControlInput1">
-
+                <h6 class=" mt-3">নেগেটিভ মারকিং</h6>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">হ্যাঁ</label>
                 </div>
-                <div class="col-md-1">
-                    <h6 class="mt-3">মিনিট</h6>
+                <div class="form-check form-check-inline ">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">না</label>
                 </div>
-            </div>
-        </div>
-        <h6 class=" mt-3">নেগেটিভ মারকিং</h6>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">হ্যাঁ</label>
-        </div>
-        <div class="form-check form-check-inline ">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">না</label>
-        </div>
 
-        <div style="text-align: center;" class=" mt-3 pb-3">
-            <a href="~/Exam/MockExam"><button type="button " class="btn btn-warning fw-bold">শুরু করুন</button></a>
-        </div>
+                <div style="text-align: center;" class=" mt-3 pb-3">
+                    <button type="submit" class="btn btn-warning fw-bold">শুরু করুন</button>
+                </div>
+            </form>
+        }
     </section>
 
     @Html.Partial("_Footer")

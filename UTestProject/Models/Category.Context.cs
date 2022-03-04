@@ -13,10 +13,10 @@ namespace UTestProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UTestDBEntities2 : DbContext
+    public partial class CategoryDbEntities : DbContext
     {
-        public UTestDBEntities2()
-            : base("name=UTestDBEntities2")
+        public CategoryDbEntities()
+            : base("name=CategoryDbEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace UTestProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }

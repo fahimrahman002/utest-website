@@ -65,23 +65,26 @@
                     <div class="tab-pane active" id="profile">
                         <div class="row border g-0 rounded shadow-sm">
                             <div class="col p-4">
-
-                                <form action="" class="formm">
-                                    <div class="profile-pic-div">
-                                        <img src="~/Static/images/image.jpg" id="photo" />
-                                        <input type="file" id="file" />
-                                        <label for="file" id="uploadBtn">Choose Photo</label>
-                                    </div>
-                                    <div class="mb-3 ">
-                                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="default name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">About</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                    <button class="btn btn-warning">Save changes</button>
-                                </form>
+                                @using (Html.BeginForm("UpdateProfile", "User"))
+                                {
+                                    <form class="formm">
+                                        <div class="profile-pic-div">
+                                            <img src="~/Static/images/image.jpg" id="photo" />
+                                            @*<input type="file" id="file" />*@
+                                            <label for="file" id="uploadBtn">Choose Photo</label>
+                                        </div>
+                                        <div class="mb-3 ">
+                                            <label for="userNameInput" class="form-label">Name</label>
+                                            <input type="text" name="userName" value="@ViewBag.student.Name" class="form-control" id="nameInput"
+                                                   placeholder="Your name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="userAboutInput" class="form-label">About</label>
+                                            <textarea class="form-control" name="userAbout" id="userAboutInput" rows="3">@ViewBag.student.About</textarea>
+                                        </div>
+                                        <button class="btn btn-warning">Save changes</button>
+                                    </form>
+                                }
                             </div>
                         </div>
                     </div>
@@ -89,17 +92,20 @@
                     <div class="tab-pane" id="password">
                         <div class="row border g-0 rounded shadow-sm">
                             <div class="col p-4">
-                                <form action="">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">New Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="New Password">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput3" placeholder="Confirm Password">
-                                    </div>
-                                    <button class="btn btn-secondary">Change Password</button>
-                                </form>
+                                @using (Html.BeginForm("UpdatePassword", "User"))
+                                {
+                                    <form action="">
+                                        <div class="mb-3">
+                                            <label for="newPassword" class="form-label">New Password</label>
+                                            <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                        </div>
+                                        <button class="btn btn-secondary">Change Password</button>
+                                    </form>
+                                }
                             </div>
 
                         </div>
@@ -178,5 +184,31 @@
     <!-- jquery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="~/Static/js/userProfile.js"></script>
+
+    @if (ViewData["MessageText"] != null && ViewData["MessageType"] != null)
+    {
+        <script>
+        var type = "@ViewData["MessageType"]";
+        var message = "@ViewData["MessageText"]";
+        toastr.options.timeOut = 2000;
+        switch (type) {
+            case "info":
+                toastr.info(message);
+                break;
+            case "success":
+                toastr.success(message);
+                break;
+            case "warning":
+                toastr.warning(message);
+                break;
+            case "error":
+                toastr.error(message);
+                break;
+            default:
+                toastr.error("An error occurred");
+        }
+        </script>
+
+    }
 </body>
 </html>
