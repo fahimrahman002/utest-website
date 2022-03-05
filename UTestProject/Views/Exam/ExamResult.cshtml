@@ -1,0 +1,145 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Html.Partial("_CommonLinks")
+    <link rel="stylesheet" href="~/Static/css/liveQuiz.css">
+    <link rel="stylesheet" href="~/Static/css/exam.css" />
+    <link rel="stylesheet" href="~/Static/dist/apexcharts.css" />
+    <link rel="stylesheet" href="~/Static/css/performance.css">
+    <link rel="stylesheet" href="~/Static/css/dashboard.css" />
+    <title>Exam Result</title>
+</head>
+<body>
+    <div>
+        <!-- dashboard Menu start -->
+        <section class="dashboard">
+            @Html.Partial("_NavbarAfterLogin")
+        </section>
+        <!-- dashboard Menu End -->
+
+        <div>
+            <div class="text-center p-3" style="background: #fefce8">
+                <h5>পরীক্ষা</h5>
+                <h6>বিষয় সমুহঃ {{selected_subjects}}</h6>
+                <h6>সময়ঃ {{exam_duration}} মিনিট</h6>
+
+                <!-- Accuracy Pie Chart -->
+                <section class="container mt-4">
+                    <h6 class="fw-bold pb-4 text-center" style="font-size: 20px;">
+                        পারফর্মেন্স অ্যানালাইসিস</h5>
+                        <div class="row">
+                            <h3 style="font-size: 18px;font-weight: 700; text-align: center;">Accuracy</h3>
+                            <div class="col-md-4 col-sm-2 "></div>
+                            <div class="col-md-4 col-sm-8 d-flex justify-content-center">
+                                <div id="chart"></div>
+                            </div>
+                            <div class="col-md-4 col-sm-2 "></div>
+                        </div>
+                </section>
+                <h6>এই পরীক্ষার জন্য তুমি {{total_point}} পয়েন্ট পাবে। </h6>
+            </div>
+        </div>
+
+        <!-- Question-Answer Section start -->
+        {% for question in questions %}
+
+        <div class="container info_box p-4">
+            <div class="ques-list">
+                <div class="ques-text text-center">
+                    <h5 class='p-2 ques-text'>
+                        {{forloop.counter}} .
+                        <script>document.write("{{question.title|escapejs}}")</script>
+                    </h5>
+                </div>
+                <div>
+                    <div class="row ques-option mx-auto">
+
+                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_a %} correct {% endif %}
+                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_a %} inCorrect {% endif %} m-2">
+                            <h6 class="p-3">
+                                <script>document.write("{{question.option_a|escapejs}}")</script>
+                            </h6>
+                        </div>
+                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_b %} correct {% endif %}
+                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_b %} inCorrect {% endif %} m-2">
+                            <h6 class="p-3">
+                                <script>document.write("{{question.option_b|escapejs}}")</script>
+                            </h6>
+                        </div>
+                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_c %} correct {% endif %}
+                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_c %} inCorrect {% endif %} m-2">
+                            <h6 class="p-3">
+                                <script>document.write("{{question.option_c|escapejs}}")</script>
+                            </h6>
+                        </div>
+                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_d %} correct {% endif %}
+                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_d %} inCorrect {% endif %} m-2">
+                            <h6 class="p-3">
+                                <script>document.write("{{question.option_d|escapejs}}")</script>
+                            </h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-11 reS">
+                                <div id="solution" class="p-3 mt-3 ms-1 fw-bold ms-0 " style="background-color: #fff280;margin-left: 9px!important;border-radius: 20px;">
+                                    <h6>Solution</h6>
+                                    <script>document.write("{{question.solution|escapejs}}")</script>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- Question-Answer Section end -->
+
+    </div>
+    <script src="~/Static/dist/apexcharts.min.js"></script>
+    <script>
+        var total_correct_ans = parseInt("12")
+        var total_wrong_ans = parseInt("10")
+        var total_skipped_ans = parseInt("11")
+        var options = {
+            series: [total_wrong_ans, total_correct_ans, total_skipped_ans],
+            labels: ["Wrong", "Correct", "Skipped"],
+            markers: {
+                colors: ["#dddd", "#E91E63", "#9C27B0"],
+            },
+            chart: {
+                type: "pie",
+            },
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 300,
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                    },
+                },
+            ],
+            legend: {
+                position: "bottom",
+                offsetX: -40,
+            },
+            dataLabels: {
+                enabled: true,
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+</body>
+</html>

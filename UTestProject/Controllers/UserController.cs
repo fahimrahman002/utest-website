@@ -17,6 +17,10 @@ namespace UTestProject.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            if (Session["UserEmail"] != null && Session["UserPass"] != null)
+            {
+                return RedirectToAction("Dashboard");
+            }
             return View();
         }
 
@@ -52,6 +56,10 @@ namespace UTestProject.Controllers
         [HttpGet]
         public ActionResult SignUp()
         {
+            if (Session["UserEmail"] != null && Session["UserPass"] != null)
+            {
+                return RedirectToAction("Dashboard");
+            }
             List<Category> categories = categoryDb.Categories.ToList();
             ViewBag.categories = categories;
             return View();
@@ -134,7 +142,6 @@ namespace UTestProject.Controllers
 
                     ViewBag.student = student;
 
-                    //studentDb.Student.Update
                     ViewData["MessageText"] = "Profile updated successfully";
                     ViewData["MessageType"] = "success";
 

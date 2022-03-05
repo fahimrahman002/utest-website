@@ -758,6 +758,7 @@
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\User\Settings.cshtml" />
     <Content Include="Views\Exam\MockExam.cshtml" />
+    <Content Include="Views\Exam\ExamResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

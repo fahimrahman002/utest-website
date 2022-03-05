@@ -33,32 +33,36 @@
                         <label class="form-check-label" for="inlineRadio2">পূর্বের ভুল/দাগানো</label>
                     </div>
                     <h6 class=" mt-3">বিষয়</h6>
-                    <!-- Subject starts -->
-                    <div class="d-flex flex-column w-full p-2 mb-3 space-y-1 dark:text-white dark:bg-gray-900 rounded-lg bg-green-50">   
-                        <div x-show="sub.children" class="d-grid justify-content-between gap-3 text-sm md:d-grid-cols-2" style="background-color:#f7ff0385">
-                            <div class="space-y-1">
-                                <label class="d-flex align-items-center space-x-2">
-                                    <input type="checkbox" 
-                                    id="topics" class="topics" name="topics"value="phys_1">
-                                    <span style="margin-left: 1rem;" >পদার্থবিজ্ঞান</span>
+                    @foreach (var item in ViewBag.subjects)
+                    {<!-- Subject starts -->
+                        <div class="d-flex flex-column w-full p-2 mb-3 space-y-1 dark:text-white dark:bg-gray-900 rounded-lg bg-green-50">
+                            <div x-show="sub.children" class="d-grid justify-content-between gap-3 text-sm md:d-grid-cols-2" style="background-color:#f7ff0385">
+                                <div class="space-y-1">
+                                    <label class="d-flex align-items-center space-x-2">
+                                        <input type="checkbox"
+                                               id="topics" class="topics" name="topics" value="phys_1">
+                                        <span style="margin-left: 1rem;">@item.Title</span>
 
-                                </label>
-
-                                <template x-for="grandchild in child.children" :key="grandchild.id">
-                                    <label class="d-flex align-items-center ps-4 space-x-2">
-                                        <input type="checkbox" :value="grandchild.id" x-model="selectedTopics" name="topics" class="topics">
-                                        <span x-text="grandchild.name"></span>
                                     </label>
-                                </template>
+
+                                    <template x-for="grandchild in child.children" :key="grandchild.id">
+                                        <label class="d-flex align-items-center ps-4 space-x-2">
+                                            <input type="checkbox" name="topics" class="topics">
+                                        </label>
+                                    </template>
+                                </div>
+                            </div>
+                            <label for="numOfQuestions" class="form-label">
+                                প্রশ্নের সংখ্যা
+                            </label>
+                            <div>
+                                <input type="number" class="form-control" name="numOfQuestions">
                             </div>
                         </div>
-                        <label for="numOfQuestions" class="form-label">প্রশ্নের সংখ্যা
-                        </label>
-                        <div>
-                            <input type="number" class="form-control" name="numOfQuestions" required="">
-                        </div>
-                    </div>
-                    <!-- Subject ends -->
+                        <!-- Subject ends -->
+
+                    }
+
 
                     <h6 class=" mt-3">সময়</h6>
                     <div class="row">
