@@ -12,23 +12,17 @@ namespace UTestProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Exam
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
-        {
-            this.Exams = new HashSet<Exam>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string About { get; set; }
         public Nullable<int> Category { get; set; }
+        public Nullable<int> Student { get; set; }
+        public string Subjects { get; set; }
+        public Nullable<double> Obtained_marks { get; set; }
+        public Nullable<double> Total_marks { get; set; }
+        public Nullable<System.DateTime> Exam_date { get; set; }
     
         public virtual Category Category1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exams { get; set; }
+        public virtual Student Student1 { get; set; }
     }
 }

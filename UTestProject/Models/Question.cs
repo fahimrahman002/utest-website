@@ -22,8 +22,8 @@ namespace UTestProject.Models
         public string Option_b { get; set; }
         public string Option_c { get; set; }
         public string Option_d { get; set; }
-        public string Correct_option { get; set; }
         public string Solution { get; set; }
+        public string Correct_ans { get; set; }
     
         public virtual Category Category1 { get; set; }
         public virtual Subject Subject1 { get; set; }

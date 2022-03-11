@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuestionDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ExamDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -130,7 +130,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuestionDbModelStoreContainer">
+        <EntityContainer Name="ExamDbModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
@@ -165,7 +165,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="QuestionDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ExamDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -303,7 +303,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuestionDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ExamDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Exams" EntityType="Self.Exam" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
@@ -339,9 +339,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuestionDbModelStoreContainer" CdmEntityContainer="QuestionDbEntities">
+        <EntityContainerMapping StorageEntityContainer="ExamDbModelStoreContainer" CdmEntityContainer="ExamDbEntities">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="QuestionDbModel.Category">
+            <EntityTypeMapping TypeName="ExamDbModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -349,7 +349,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exams">
-            <EntityTypeMapping TypeName="QuestionDbModel.Exam">
+            <EntityTypeMapping TypeName="ExamDbModel.Exam">
               <MappingFragment StoreEntitySet="Exam">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
@@ -362,7 +362,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questions">
-            <EntityTypeMapping TypeName="QuestionDbModel.Question">
+            <EntityTypeMapping TypeName="ExamDbModel.Question">
               <MappingFragment StoreEntitySet="Question">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
@@ -378,7 +378,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="QuestionDbModel.Student">
+            <EntityTypeMapping TypeName="ExamDbModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -390,7 +390,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="QuestionDbModel.Subject">
+            <EntityTypeMapping TypeName="ExamDbModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />

@@ -13,10 +13,10 @@ namespace UTestProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuestionDbEntities : DbContext
+    public partial class ExamDbEntities : DbContext
     {
-        public QuestionDbEntities()
-            : base("name=QuestionDbEntities")
+        public ExamDbEntities()
+            : base("name=ExamDbEntities")
         {
         }
     

@@ -153,6 +153,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Category.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Exam.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exam.cs">
+      <DependentUpon>Question.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exam.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exam1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Question.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +239,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Category.edmx</DependentUpon>
       <LastGenOutput>Category1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Exam.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Exam.edmx</DependentUpon>
+      <LastGenOutput>Exam.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Exam.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Exam.edmx</DependentUpon>
+      <LastGenOutput>Exam1.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Question.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -736,6 +764,13 @@
     </EntityDeploy>
     <Content Include="Models\Student.edmx.diagram">
       <DependentUpon>Student.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Exam.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Exam.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Exam.edmx.diagram">
+      <DependentUpon>Exam.edmx</DependentUpon>
     </Content>
     <EntityDeploy Include="Models\Question.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

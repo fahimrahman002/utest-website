@@ -68,4 +68,19 @@ INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,
 select * from Question
 
 
+--> Exam Table
+CREATE TABLE Exam(
+	ID int PRIMARY KEY identity(1,1),
+	Category int FOREIGN KEY REFERENCES Category(ID),
+	Student int FOREIGN KEY REFERENCES Student(ID),
+	Subjects text,
+	Obtained_marks int,
+	Total_marks int,
+	Date datetime default(getDate())
+);
+
+INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks) VALUES 
+(3,7,'Math,Physics,',1,2)
+
+select * from Exam
 

@@ -1,6 +1,8 @@
 ﻿
 @{
     Layout = null;
+    int counter = 1;
+    int counter0 = 0;
 }
 
 <!DOCTYPE html>
@@ -27,8 +29,8 @@
         <div>
             <div class="text-center p-3" style="background: #fefce8">
                 <h5>পরীক্ষা</h5>
-                <h6>বিষয় সমুহঃ {{selected_subjects}}</h6>
-                <h6>সময়ঃ {{exam_duration}} মিনিট</h6>
+                <h6>বিষয় সমুহঃ @ViewBag.selectedSubjectsStr</h6>
+                <h6>সময়ঃ @ViewBag.examDuration মিনিট</h6>
 
                 <!-- Accuracy Pie Chart -->
                 <section class="container mt-4">
@@ -43,70 +45,111 @@
                             <div class="col-md-4 col-sm-2 "></div>
                         </div>
                 </section>
-                <h6>এই পরীক্ষার জন্য তুমি {{total_point}} পয়েন্ট পাবে। </h6>
+                <h6>এই পরীক্ষার জন্য তুমি @ViewBag.totalPoint পয়েন্ট পাবে। </h6>
             </div>
         </div>
 
         <!-- Question-Answer Section start -->
-        {% for question in questions %}
+        @foreach (var item in ViewBag.questionList)
+        {
 
-        <div class="container info_box p-4">
-            <div class="ques-list">
-                <div class="ques-text text-center">
-                    <h5 class='p-2 ques-text'>
-                        {{forloop.counter}} .
-                        <script>document.write("{{question.title|escapejs}}")</script>
-                    </h5>
-                </div>
-                <div>
-                    <div class="row ques-option mx-auto">
+            <div class="container info_box p-4">
+                <div class="ques-list">
+                    <div class="ques-text text-center">
+                        <h5 class='p-2 ques-text'>
+                            @counter .
+                            <script>document.write("@item.Title")</script>
+                        </h5>
+                    </div>
+                    <div>
+                        <div class="row ques-option mx-auto">
+                            @{
+                                string classCorrectA = "";
+                                string classIncorrectA = "";
+                                if (ViewBag.correctAnswers[counter0] == item.Option_a)
+                                {
+                                    classCorrectA = "correct";
+                                }
+                                if (ViewBag.answerStatus[counter0] == -1 && ViewBag.markedAnswers[counter0] == item.Option_a)
+                                {
+                                    classIncorrectA = "inCorrect";
+                                }
+                                string classCorrectB = "";
+                                string classIncorrectB = "";
+                                if (ViewBag.correctAnswers[counter0] == item.Option_b)
+                                {
+                                    classCorrectB = "correct";
+                                }
+                                if (ViewBag.answerStatus[counter0] == -1 && ViewBag.markedAnswers[counter0] == item.Option_b)
+                                {
+                                    classIncorrectB = "inCorrect";
+                                }
+                                string classCorrectC = "";
+                                string classIncorrectC = "";
+                                if (ViewBag.correctAnswers[counter0] == item.Option_c)
+                                {
+                                    classCorrectC = "correct";
+                                }
+                                if (ViewBag.answerStatus[counter0] == -1 && ViewBag.markedAnswers[counter0] == item.Option_c)
+                                {
+                                    classIncorrectC = "inCorrect";
+                                }
+                                string classCorrectD = "";
+                                string classIncorrectD = "";
+                                if (ViewBag.correctAnswers[counter0] == item.Option_d)
+                                {
+                                    classCorrectD = "correct";
+                                }
+                                if (ViewBag.answerStatus[counter0] == -1 && ViewBag.markedAnswers[counter0] == item.Option_d)
+                                {
+                                    classIncorrectD = "inCorrect";
+                                }
 
-                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_a %} correct {% endif %}
-                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_a %} inCorrect {% endif %} m-2">
-                            <h6 class="p-3">
-                                <script>document.write("{{question.option_a|escapejs}}")</script>
-                            </h6>
-                        </div>
-                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_b %} correct {% endif %}
-                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_b %} inCorrect {% endif %} m-2">
-                            <h6 class="p-3">
-                                <script>document.write("{{question.option_b|escapejs}}")</script>
-                            </h6>
-                        </div>
-                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_c %} correct {% endif %}
-                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_c %} inCorrect {% endif %} m-2">
-                            <h6 class="p-3">
-                                <script>document.write("{{question.option_c|escapejs}}")</script>
-                            </h6>
-                        </div>
-                        <div class="col-md-5 option {% if correct_answers|index:forloop.counter0 == question.option_d %} correct {% endif %}
-                {% if answers_status|index:forloop.counter0 == -1 and marked_answers|index:forloop.counter0 == question.option_d %} inCorrect {% endif %} m-2">
-                            <h6 class="p-3">
-                                <script>document.write("{{question.option_d|escapejs}}")</script>
-                            </h6>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-11 reS">
-                                <div id="solution" class="p-3 mt-3 ms-1 fw-bold ms-0 " style="background-color: #fff280;margin-left: 9px!important;border-radius: 20px;">
-                                    <h6>Solution</h6>
-                                    <script>document.write("{{question.solution|escapejs}}")</script>
-                                </div>
+                            }
+                            <div class="col-md-5 option @classCorrectA @classIncorrectA m-2">
+                                <h6 class="p-3">
+                                    <script>document.write("@item.Option_a")</script>
+                                </h6>
                             </div>
-                            <div class="col-md-1"></div>
+                            <div class="col-md-5 option @classCorrectB @classIncorrectB m-2">
+                                <h6 class="p-3">
+                                    <script>document.write("@item.Option_b")</script>
+                                </h6>
+                            </div>
+                            <div class="col-md-5 option @classCorrectC @classIncorrectC m-2">
+                                <h6 class="p-3">
+                                    <script>document.write("@item.Option_c")</script>
+                                </h6>
+                            </div>
+                            <div class="col-md-5 option @classCorrectD @classIncorrectD m-2">
+                                <h6 class="p-3">
+                                    <script>document.write("@item.Option_d")</script>
+                                </h6>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11 reS">
+                                    <div id="solution" class="p-3 mt-3 ms-1 fw-bold ms-0 " style="background-color: #fff280;margin-left: 9px!important;border-radius: 20px;">
+                                        <h6>Solution</h6>
+                                        <script>document.write("@item.Solution")</script>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            counter++;
+            counter0++;
+        }
         <!-- Question-Answer Section end -->
 
     </div>
     <script src="~/Static/dist/apexcharts.min.js"></script>
     <script>
-        var total_correct_ans = parseInt("12")
-        var total_wrong_ans = parseInt("10")
-        var total_skipped_ans = parseInt("11")
+        var total_correct_ans = parseInt("@ViewBag.totalCorrectAns")
+        var total_wrong_ans = parseInt("@ViewBag.totalWrongAns")
+        var total_skipped_ans = parseInt("@ViewBag.totalSkippedAns")
         var options = {
             series: [total_wrong_ans, total_correct_ans, total_skipped_ans],
             labels: ["Wrong", "Correct", "Skipped"],

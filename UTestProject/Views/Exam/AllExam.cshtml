@@ -1,6 +1,18 @@
 ﻿
 @{
     Layout = null;
+    int counter = 1;
+    string[] listStrToListOfStr(string listStr)
+    {
+        List<int> list = new List<int>();
+        char[] spearator = { ',' };
+        String[] strlist = listStr.Split(spearator);
+        if (String.IsNullOrWhiteSpace(strlist.Last()))
+        {
+            strlist = strlist.Take(strlist.Count() - 1).ToArray();
+        }
+        return strlist;
+    }
 }
 
 <!DOCTYPE html>
@@ -12,6 +24,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @Html.Partial("_CommonLinks")
     @Styles.Render("~/css/allExam.css")
+    <style>
+        td {
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
 
     <title>All Exam</title>
 </head>
@@ -29,140 +50,49 @@
                             <th scope="col">No</th>
                             <th scope="col">Subjects</th>
                             <th scope="col">Standard</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Topics</th>
                             <th scope="col">Marks</th>
                             <th scope="col">Date</th>
                         </tr>
                     </thead>
                     <tbody class="text-white">
-                        <tr>
-                            <th scope="row text-white">1</th>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <span class="tab-data text-dark me-1">পদার্থবিজ্ঞান</span>
-                                    <span class="tab-data text-dark">রসায়ন</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Engineering</span>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Practise</span>
-
-                            </td>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="topic text-dark me-1">
-                                        ভৌতজগত ও পরিমাপ
-                                    </div>
-                                    <div class="topic text-dark">
-
-                                        ল্যাবরেটরির নিরাপদ ব্যবহার
+                        @foreach (var item in ViewBag.exams)
+                        {
+                            <tr>
+                                <th scope="row text-white">@counter</th>
+                                <td>
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        @foreach (var sub in listStrToListOfStr(item.Subjects))
+                                        {
+                                            <span class="tab-data text-dark me-1">@sub</span>
+                                        }
 
                                     </div>
-                                </div>
+                                </td>
+                                <td>
+                                    <span class="tab-data text-dark">@item.Category1.Title</span>
+                                </td>
 
-
-                            </td>
-                            <td>
-                                <span class="d-flex justify-content-between">
-                                    <h6>0%</h6>
-                                    <h6>0/14</h6>
-                                </span>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>26 Dec 2021</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row text-white">1</th>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <span class="tab-data text-dark me-1">পদার্থবিজ্ঞান</span>
-                                    <span class="tab-data text-dark">রসায়ন</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Engineering</span>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Practise</span>
-
-                            </td>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="topic text-dark me-1">
-                                        ভৌতজগত ও পরিমাপ
+                                <td>
+                                    <span class="d-flex justify-content-between">
+                                        @{
+                                            double percentage = ((double)item.Obtained_marks / (double)item.Total_marks) * 100;
+                                            //double percentage = 20;
+                                        }
+                                        <h6>@percentage%</h6>
+                                        <h6>@item.Obtained_marks/@item.Total_marks</h6>
+                                    </span>
+                                    <div class="progress">
+                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <div class="topic text-dark">
+                                </td>
+                                <td>
+                                    <h6>@item.Exam_date</h6>
+                                </td>
+                            </tr>
 
-                                        ল্যাবরেটরির নিরাপদ ব্যবহার
+                            counter++;
 
-                                    </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <span class="d-flex justify-content-between">
-                                    <h6>0%</h6>
-                                    <h6>0/14</h6>
-                                </span>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>26 Dec 2021</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row text-white">1</th>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <span class="tab-data text-dark me-1">পদার্থবিজ্ঞান</span>
-                                    <span class="tab-data text-dark">রসায়ন</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Engineering</span>
-                            </td>
-                            <td>
-                                <span class="tab-data text-dark">Practise</span>
-
-                            </td>
-                            <td>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="topic text-dark me-1">
-                                        ভৌতজগত ও পরিমাপ
-                                    </div>
-                                    <div class="topic text-dark">
-
-                                        ল্যাবরেটরির নিরাপদ ব্যবহার
-
-                                    </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <span class="d-flex justify-content-between">
-                                    <h6>0%</h6>
-                                    <h6>0/14</h6>
-                                </span>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>26 Dec 2021</h6>
-                            </td>
-                        </tr>
-                        
+                        }
                     </tbody>
                 </table>
                 <!-- pagination  -->
