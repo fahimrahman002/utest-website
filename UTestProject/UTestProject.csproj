@@ -141,7 +141,7 @@
       <DependentUpon>Category.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>Question.tt</DependentUpon>
+      <DependentUpon>Exam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -159,7 +159,7 @@
       <DependentUpon>Exam.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.cs">
-      <DependentUpon>Question.tt</DependentUpon>
+      <DependentUpon>Exam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,7 +177,7 @@
       <DependentUpon>Question.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Question.cs">
-      <DependentUpon>Question.tt</DependentUpon>
+      <DependentUpon>Exam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Question.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,7 +195,7 @@
       <DependentUpon>Student.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>Question.tt</DependentUpon>
+      <DependentUpon>Exam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,7 +213,7 @@
       <DependentUpon>Subject.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>Question.tt</DependentUpon>
+      <DependentUpon>Exam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -765,19 +765,19 @@
     <Content Include="Models\Student.edmx.diagram">
       <DependentUpon>Student.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\Exam.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Exam.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Exam.edmx.diagram">
-      <DependentUpon>Exam.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\Question.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Question.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\Question.edmx.diagram">
       <DependentUpon>Question.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Exam.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Exam.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Exam.edmx.diagram">
+      <DependentUpon>Exam.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_CommonLinks.cshtml" />
@@ -794,6 +794,7 @@
     <Content Include="Views\User\Settings.cshtml" />
     <Content Include="Views\Exam\MockExam.cshtml" />
     <Content Include="Views\Exam\ExamResult.cshtml" />
+    <Content Include="Views\User\Leaderboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

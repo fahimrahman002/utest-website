@@ -22,29 +22,27 @@
         <!-- middle section start  -->
         <section class="text-center p-4">
             <h5 class="p-3 fw-bold">প্রোফাইল</h5>
-            <img src="~/Static/images/profile.jpg" style="width: 200px;height: auto; border-radius: 50%;" alt="profile">
+            <img src="~/Static/images/image.jpg" style="width: 200px;height: auto; border-radius: 50%;" alt="profile">
             <div class="row pt-3 container text-center m-auto ">
                 <div class="col-md-4 shadow me-2 responsive" style="width: 347px;">
-                    <h6>153</h6>
+                    <h6>@ViewBag.studentRank</h6>
                     <p>Rank</p>
                 </div>
                 <div class="col-md-4 shadow me-2 responsive" style="width: 347px;">
-                    <h6>153</h6>
+                    <h6>@ViewBag.totalExam</h6>
                     <p>Exam</p>
                 </div>
                 <div class="col-md-4 shadow  responsive" style="width: 347px;">
-                    <h6>153</h6>
+                    <h6>@ViewBag.totalPoint</h6>
                     <p>Point</p>
                 </div>
             </div>
             <div>
-                <div class="row mt-5 overflow accuracy">
+                <div class="row mt-5 overflow accuracy" style="justify-content: center;">
                     <div class="col-md-4 shadow" id="chart">
                         <h4>অ্যাকুরেসি</h4>
                     </div>
-                    <div class="col-md-6 shadow ms-2 res-margin" id="chart1" style="width: 744px;">
-                        <h4>বিষয়ভিত্তিক অ্যাকুরেসি</h4>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -53,8 +51,44 @@
     </section>
 
     <script src="~/Static/dist/apexcharts.min.js"></script>
-    <script src="~/Static/js/apexchart.js"></script>
     <script src="~/Static/js/bootstrap.js"></script>
+    <script>
+        var total_correct_ans = parseInt("@ViewBag.totalCorrectAns")
+        var total_wrong_ans = parseInt("@ViewBag.totalWrongAns")
+        var total_skipped_ans = parseInt("@ViewBag.totalSkippedAns")
+        var options = {
+            series: [total_wrong_ans, total_correct_ans, total_skipped_ans],
+            labels: ["Wrong", "Correct", "Skipped"],
+            markers: {
+                colors: ["#dddd", "#E91E63", "#9C27B0"],
+            },
+            chart: {
+                type: "pie",
+            },
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 300,
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                    },
+                },
+            ],
+            legend: {
+                position: "bottom",
+                offsetX: -40,
+            },
+            dataLabels: {
+                enabled: true,
+            },
+        };
 
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
 </body>
 </html>

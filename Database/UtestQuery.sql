@@ -23,7 +23,7 @@ CREATE TABLE Student (
 
 -- SET IDENTITY_INSERT Student ON
 INSERT INTO Student (Name, Email, Password, Category)
-VALUES ('Fahim', 'fahimpranto002@gmail.com', '1', 3);
+VALUES ('User2', 'user2@gmail.com', '1', 3);
 
 SELECT * FROM Student
 
@@ -54,11 +54,13 @@ CREATE TABLE Question(
 	Option_b text,
 	Option_c text,
 	Option_d text,
-	Correct_option text,
+	Correct_ans text,
 	Solution text
 );
 
-INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,Correct_option,Solution) VALUES 
+--EXEC sp_RENAME 'Question.Correct_option' , 'Correct_ans', 'COLUMN'
+
+INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,Correct_ans,Solution) VALUES 
 (3,1,'Ques-1 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
 (3,1,'Ques-2 title c-c','op-a','op-b','op-c','op-d','op-c','solve like this'),
 (3,1,'Ques-3 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
@@ -74,13 +76,26 @@ CREATE TABLE Exam(
 	Category int FOREIGN KEY REFERENCES Category(ID),
 	Student int FOREIGN KEY REFERENCES Student(ID),
 	Subjects text,
-	Obtained_marks int,
-	Total_marks int,
-	Date datetime default(getDate())
+	Obtained_marks float default 0,
+	Total_marks float default 0,
+	Total_correct_ans int default 0,
+	Total_wrong_ans int default 0,
+	Total_skipped_ans int default 0,
+	Exam_date datetime default(getDate())
 );
 
-INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks) VALUES 
-(3,7,'Math,Physics,',1,2)
+
+--INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks,Total_correct_ans,Total_wrong_ans,Total_skipped_ans) VALUES 
+--(3,7,'Math,Physics,',1,2,1,1,0)
+
+--INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks,Total_correct_ans,Total_wrong_ans,Total_skipped_ans) VALUES 
+--(3,9,'Math,Physics,',3,2,1,1,0)
+
+--INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks,Total_correct_ans,Total_wrong_ans,Total_skipped_ans) VALUES 
+--(3,10,'Math,Physics,',2,2,1,1,0)
+
+--INSERT INTO Exam(Category,Student,Subjects,Obtained_marks,Total_marks,Total_correct_ans,Total_wrong_ans,Total_skipped_ans) VALUES 
+--(3,7,'Math,Physics,',4,2,1,1,0)
 
 select * from Exam
 

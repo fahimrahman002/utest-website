@@ -20,6 +20,9 @@ namespace UTestProject.Models
         public string Subjects { get; set; }
         public Nullable<double> Obtained_marks { get; set; }
         public Nullable<double> Total_marks { get; set; }
+        public Nullable<int> Total_correct_ans { get; set; }
+        public Nullable<int> Total_wrong_ans { get; set; }
+        public Nullable<int> Total_skipped_ans { get; set; }
         public Nullable<System.DateTime> Exam_date { get; set; }
     
         public virtual Category Category1 { get; set; }

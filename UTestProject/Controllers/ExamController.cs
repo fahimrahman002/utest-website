@@ -178,7 +178,18 @@ namespace UTestProject.Controllers
                 }
 
                 DateTime examDate = DateTime.Now;
-                Exam newExam = new Exam() { Category = student.Category, Student = student.ID, Subjects = selectedSubjectsStr, Obtained_marks = obtainedMarks, Total_marks = totalMarks, Exam_date = examDate };
+                Exam newExam = new Exam()
+                {
+                    Category = student.Category,
+                    Student = student.ID,
+                    Subjects = selectedSubjectsStr,
+                    Obtained_marks = obtainedMarks,
+                    Total_marks = totalMarks,
+                    Exam_date = examDate,
+                    Total_correct_ans = totalCorrectAns,
+                    Total_wrong_ans = totalWrongAns,
+                    Total_skipped_ans = totalSkippedAns
+                };
                 examDb.Exams.Add(newExam);
                 examDb.SaveChanges();
 

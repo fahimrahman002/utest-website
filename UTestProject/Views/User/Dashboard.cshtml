@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    int counter = 1;
 }
 
 <!DOCTYPE html>
@@ -26,7 +27,9 @@
         <section class="container mt-5">
             <span class="d-flex justify-content-between">
                 <h4 style="font-size: 30px;font-weight: 700;">Dashboard</h4>
-                <button class="bg-warning add-exam-btn text-dark fw-bold"><i class="fas fa-plus"></i> New Exam <i class="fas fa-arrow-right"></i></button>
+                <button class="bg-warning add-exam-btn text-dark fw-bold">
+                    <a href="~/Exam/Mock" class="new-exam-btn"><i class="fas fa-plus"></i> New Exam <i class="fas fa-arrow-right"></i></a>
+                </button>
             </span>
 
         </section>
@@ -63,28 +66,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>100k</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>200k</td>
-
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>50k</td>
-
-                                        </tr>
+                                        @foreach (var item in ViewBag.rankingList)
+                                        {
+                                            <tr>
+                                                <th scope="row">@counter</th>
+                                                <td>@item.studentName</td>
+                                                <td>@item.totalPoint</td>
+                                            </tr>
+                                            counter++;
+                                        }
                                     </tbody>
 
                                 </table>
                                 <span class="d-flex justify-content-center p-3">
-                                    <a href="./performance.html"> <button class="btn btn-warning fw-bold" style="border: none;">See All <i class="fas fa-arrow-right"></i></button></a>
+                                    <a href="~/User/Leaderboard"> <button class="btn btn-warning fw-bold" style="border: none;">See All <i class="fas fa-arrow-right"></i></button></a>
                                 </span>
 
                             </div>
@@ -100,11 +95,45 @@
     </div>
 
     <script src="~/Static/dist/apexcharts.min.js"></script>
-    <script src="~/Static/dist/apexcharts.js"></script>
     <script src="~/Static/js/bootstrap.js"></script>
-    <script src="~/Static/js/apexchart.js"></script>
-    <script src="~/Static/js/question.js"></script>
-    <script src="~/Static/js/script.js"></script>
+    <script>
+        var total_correct_ans = parseInt("@ViewBag.totalCorrectAns")
+        var total_wrong_ans = parseInt("@ViewBag.totalWrongAns")
+        var total_skipped_ans = parseInt("@ViewBag.totalSkippedAns")
+        var options = {
+            series: [total_wrong_ans, total_correct_ans, total_skipped_ans],
+            labels: ["Wrong", "Correct", "Skipped"],
+            markers: {
+                colors: ["#dddd", "#E91E63", "#9C27B0"],
+            },
+            chart: {
+                type: "pie",
+            },
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 300,
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                    },
+                },
+            ],
+            legend: {
+                position: "bottom",
+                offsetX: -40,
+            },
+            dataLabels: {
+                enabled: true,
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
 
 </body>
 </html>

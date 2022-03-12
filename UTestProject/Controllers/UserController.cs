@@ -13,6 +13,7 @@ namespace UTestProject.Controllers
     {
         StudentDbEntities studentDb = new StudentDbEntities();
         CategoryDbEntities categoryDb = new CategoryDbEntities();
+        ExamDbEntities examDb = new ExamDbEntities();
 
         [HttpGet]
         public ActionResult Login()
@@ -69,11 +70,20 @@ namespace UTestProject.Controllers
         [HttpPost]
         public ActionResult SignUpForm()
         {
+            List<Category> categories = categoryDb.Categories.ToList();
+            ViewBag.categories = categories;
 
             string name = Request.Form["nameInput"];
             string email = Request.Form["emailInput"];
             string password = Request.Form["passwordInput"];
             int category = int.Parse(Request.Form["categoryInput"]);
+            if (password.Length < 6)
+            {
+                ViewData["MessageText"] = "Password must be minimum 6 characters";
+                ViewData["MessageType"] = "error";
+                return View();
+
+            }
             Student student = new Student() { Name = name, Email = email, Password = password, Category = category };
             try
             {
@@ -85,8 +95,7 @@ namespace UTestProject.Controllers
                 if (ex.InnerException?.InnerException is SqlException sqlEx &&
     (sqlEx.Number == 2601 || sqlEx.Number == 2627))
                 {
-                    List<Category> categories = categoryDb.Categories.ToList();
-                    ViewBag.categories = categories;
+
                     ViewData["MessageText"] = "Email already exists.";
                     ViewData["MessageType"] = "error";
                     return View();
@@ -105,13 +114,45 @@ namespace UTestProject.Controllers
 
         public new ActionResult Profile()
         {
-            if (Session["UserEmail"] != null && Session["UserPass"] != null)
+            var email = Session["UserEmail"];
+            var pass = Session["UserPass"];
+            if (email != null && pass != null)
             {
+
+
+                int? totalCorrectAns = 0, totalWrongAns = 0, totalSkippedAns = 0;
+                double? totalPoint = 0;
+                int totalExam = 0;
+                Student student = studentDb.Students.Where(temp => temp.Email == email && temp.Password == pass).FirstOrDefault();
+                List<Exam> examList = examDb.Exams.Where(temp => temp.Student == student.ID).ToList();
+                totalExam = examList.Count();
+                foreach (Exam exam in examList)
+                {
+                    totalCorrectAns += exam.Total_correct_ans;
+                    totalWrongAns += exam.Total_wrong_ans;
+                    totalSkippedAns += exam.Total_skipped_ans;
+                    totalPoint += exam.Obtained_marks;
+                }
+                List<Ranking> rankingList = getRankList(student);
+                int studentRank = 1;
+                foreach (Ranking ranking in rankingList)
+                {
+                    if (ranking.studentId == student.ID) break;
+                    studentRank++;
+                }
+
+
+                ViewBag.totalCorrectAns = totalCorrectAns;
+                ViewBag.totalWrongAns = totalWrongAns;
+                ViewBag.totalSkippedAns = totalSkippedAns;
+                ViewBag.totalPoint = totalPoint;
+                ViewBag.totalExam = totalExam;
+                ViewBag.studentRank = studentRank;
+
                 return View();
             }
             else
             {
-
                 return RedirectToAction("Login");
             }
 
@@ -207,8 +248,95 @@ namespace UTestProject.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         {
-            if (Session["UserEmail"] != null && Session["UserPass"] != null)
+            var email = Session["UserEmail"];
+            var pass = Session["UserPass"];
+            if (email != null && pass != null)
             {
+                Student student = studentDb.Students
+                .Where(temp => temp.Email == email && temp.Password == pass).FirstOrDefault();
+
+                // Leaderboard summery
+                List<Ranking> rankingList = getRankList(student);
+                ViewBag.rankingList = rankingList.Take(5);
+
+                // Student profile summery(Total correct ans, wrong ans, skipped ans)
+                int? totalCorrectAns = 0, totalWrongAns = 0, totalSkippedAns = 0;
+                List<Exam> examList = examDb.Exams.Where(temp => temp.Student == student.ID).ToList();
+                foreach (Exam exam in examList)
+                {
+                    totalCorrectAns += exam.Total_correct_ans;
+                    totalWrongAns += exam.Total_wrong_ans;
+                    totalSkippedAns += exam.Total_skipped_ans;
+                }
+                ViewBag.totalCorrectAns = totalCorrectAns;
+                ViewBag.totalWrongAns = totalWrongAns;
+                ViewBag.totalSkippedAns = totalSkippedAns;
+                return View();
+            }
+            else
+            {
+
+                return RedirectToAction("Login");
+            }
+
+        }
+
+        public class Ranking
+        {
+            public int? studentId { get; set; }
+            public string studentName { get; set; }
+            public double? totalPoint { get; set; }
+        }
+
+        public List<Ranking> getRankList(Student curStudent)
+        {
+            // Ranking List
+            List<Ranking> rankingList = new List<Ranking>();
+
+
+            // All students by category
+            List<Student> students = studentDb.Students
+                .Where(temp => temp.Category == curStudent.Category)
+                .ToList();
+
+            // Student Dictionary for accessing student name by id quickly
+            IDictionary<int?, string> studentDic = new Dictionary<int?, string>();
+            foreach (Student item in students)
+            {
+                studentDic.Add(item.ID, item.Name);
+            }
+
+            // Exams group by student
+            var examGroupByStudent = examDb.Exams
+                .Where(temp => temp.Category == curStudent.Category)
+                .GroupBy(e => e.Student);
+
+            foreach (var group in examGroupByStudent)
+            {
+                int? studentID = group.Key;
+                string studentName = studentDic[studentID];
+                double? obtainedMarks = group.Max(temp => temp.Obtained_marks);
+                rankingList.Add(new Ranking { studentId = studentID, studentName = studentName, totalPoint = obtainedMarks });
+            }
+
+            return rankingList;
+
+        }
+
+        [HttpGet]
+        public ActionResult Leaderboard()
+        {
+            var email = Session["UserEmail"];
+            var pass = Session["UserPass"];
+
+            if (email != null && pass != null)
+            {
+                Student student = studentDb.Students
+                .Where(temp => temp.Email == email && temp.Password == pass).FirstOrDefault();
+
+                List<Ranking> rankingList = getRankList(student);
+
+                ViewBag.rankingList = rankingList;
                 return View();
             }
             else
