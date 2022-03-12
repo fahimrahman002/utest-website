@@ -79,6 +79,24 @@
                                                    placeholder="Your name">
                                         </div>
                                         <div class="mb-3">
+                                            <label for="categoryInput" class="form-label">Category</label>
+                                            <select class="form-select" id="categoryInput" name="categoryInput" aria-label="Default select example">
+                                                @foreach (var item in ViewBag.categories)
+                                                {
+                                                    if (ViewBag.student.Category == item.ID)
+                                                    {
+                                                        <option value="@item.ID" selected>@item.Title</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@item.ID">@item.Title</option>
+                                                    }
+
+                                                }
+
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="userAboutInput" class="form-label">About</label>
                                             <textarea class="form-control" name="userAbout" id="userAboutInput" rows="3">@ViewBag.student.About</textarea>
                                         </div>
@@ -183,7 +201,7 @@
 
     <!-- jquery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="~/Static/js/userProfile.js"></script>
+    @*<script src="~/Static/js/userProfile.js"></script>*@
 
     @if (ViewData["MessageText"] != null && ViewData["MessageType"] != null)
     {

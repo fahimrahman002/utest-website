@@ -4,12 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0403f91319f8427092e595302882cc5f" Name="Diagram1">
-        <EntityTypeShape EntityType="UTestDBModel1.Student" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UTestDBModel1.Category" Width="1.5" PointX="0.75" PointY="4.125" />
-        <AssociationConnector Association="UTestDBModel1.FK__Student__Categor__3A81B327" />
-        <EntityTypeShape EntityType="UTestDBModel1.Subject" Width="1.5" PointX="3" PointY="4.125" />
-        <AssociationConnector Association="UTestDBModel1.FK__Subject__Categor__36B12243" />
+      <Diagram DiagramId="c36a6ccf86d14a4cb3492d454513f679" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentDbModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentDbModel.Exam" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentDbModel.Question" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentDbModel.Student" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentDbModel.Subject" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <AssociationConnector Association="StudentDbModel.FK__Exam__Category__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentDbModel.FK__Question__Catego__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentDbModel.FK__Student__Categor__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentDbModel.FK__Subject__Categor__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentDbModel.FK__Exam__Student__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentDbModel.FK__Question__Subjec__3E52440B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

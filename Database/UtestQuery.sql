@@ -16,11 +16,13 @@ CREATE TABLE Student (
     ID int  PRIMARY KEY identity(1,1),
 	Name varchar(30),
     Email varchar(30) UNIQUE,
-    Password varchar(30),
+    Password varchar(2000),
 	About text,
 	Category int FOREIGN KEY REFERENCES Category(ID)
 );
 
+--alter table Student
+--alter column Password varchar(2000)
 -- SET IDENTITY_INSERT Student ON
 INSERT INTO Student (Name, Email, Password, Category)
 VALUES ('User2', 'user2@gmail.com', '1', 3);
@@ -28,7 +30,7 @@ VALUES ('User2', 'user2@gmail.com', '1', 3);
 SELECT * FROM Student
 
 --DROP TABLE Student
---DELETE FROM Student
+DELETE FROM Student
 
 
 
@@ -98,4 +100,4 @@ CREATE TABLE Exam(
 --(3,7,'Math,Physics,',4,2,1,1,0)
 
 select * from Exam
-
+delete from Exam

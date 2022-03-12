@@ -141,7 +141,7 @@
       <DependentUpon>Category.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>Exam.tt</DependentUpon>
+      <DependentUpon>Student.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -159,7 +159,7 @@
       <DependentUpon>Exam.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.cs">
-      <DependentUpon>Exam.tt</DependentUpon>
+      <DependentUpon>Student.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,7 +177,7 @@
       <DependentUpon>Question.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Question.cs">
-      <DependentUpon>Exam.tt</DependentUpon>
+      <DependentUpon>Student.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Question.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,7 +195,7 @@
       <DependentUpon>Student.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>Exam.tt</DependentUpon>
+      <DependentUpon>Student.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,7 +213,7 @@
       <DependentUpon>Subject.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>Exam.tt</DependentUpon>
+      <DependentUpon>Student.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -758,13 +758,6 @@
     <Content Include="Models\Subject.edmx.diagram">
       <DependentUpon>Subject.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\Student.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Student.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Student.edmx.diagram">
-      <DependentUpon>Student.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\Question.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Question.Designer.cs</LastGenOutput>
@@ -778,6 +771,13 @@
     </EntityDeploy>
     <Content Include="Models\Exam.edmx.diagram">
       <DependentUpon>Exam.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Student.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Student.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Student.edmx.diagram">
+      <DependentUpon>Student.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_CommonLinks.cshtml" />
@@ -817,7 +817,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56506</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44371/</IISUrl>
+          <IISUrl>https://localhost:44371</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

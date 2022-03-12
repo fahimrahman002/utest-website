@@ -66,6 +66,58 @@ namespace UTestProject.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult GoogleAuth(string name, string user_name, string email, string picture, string token)
+        {
+
+            if (ModelState.IsValid)
+            {
+                Student student = studentDb.Students.Where((temp) => temp.Email == email && temp.Password == token).FirstOrDefault();
+
+                if (student != null)
+                {
+                    Session["UserName"] = student.Name;
+                    Session["UserEmail"] = student.Email;
+                    Session["UserPass"] = student.Password;
+                    return RedirectToAction("Dashboard");
+                }
+                else
+                {
+                    Student newStudent = new Student() { Name = name, Email = email, Password = token, Category = 1 };
+                    try
+                    {
+                        studentDb.Students.Add(newStudent);
+                        studentDb.SaveChanges();
+                        Session["UserName"] = newStudent.Name;
+                        Session["UserEmail"] = newStudent.Email;
+                        Session["UserPass"] = newStudent.Password;
+                        return RedirectToAction("Dashboard");
+
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        if (ex.InnerException?.InnerException is SqlException sqlEx &&
+            (sqlEx.Number == 2601 || sqlEx.Number == 2627))
+                        {
+
+                            ViewData["MessageText"] = "Email already exists.";
+                            ViewData["MessageType"] = "error";
+                            return View("Signup");
+
+                        }
+
+                    }
+
+                }
+
+                return RedirectToAction("Dashboard");
+            }
+
+
+            return RedirectToAction("Dashboard");
+        }
+
+
         [ActionName("SignUp")]
         [HttpPost]
         public ActionResult SignUpForm()
@@ -205,9 +257,11 @@ namespace UTestProject.Controllers
             {
                 var name = Request.Form["userName"];
                 var about = Request.Form["userAbout"];
+                int category = int.Parse(Request.Form["categoryInput"]);
                 Student student = studentDb.Students.Where(temp => temp.Email == email && temp.Password == pass).FirstOrDefault();
                 student.Name = name;
                 student.About = about;
+                student.Category = category;
                 studentDb.SaveChanges();
 
                 Session["UserName"] = name;
@@ -233,7 +287,9 @@ namespace UTestProject.Controllers
             if (email != null && pass != null)
             {
                 Student student = studentDb.Students.Where(temp => temp.Email == email && temp.Password == pass).FirstOrDefault();
+                List<Category> categories = categoryDb.Categories.ToList();
 
+                ViewBag.categories = categories;
                 ViewBag.student = student;
 
                 return View();

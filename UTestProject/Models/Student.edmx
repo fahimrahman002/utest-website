@@ -4,13 +4,43 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="UTestDBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="StudentDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="int" />
+          <Property Name="Student" Type="int" />
+          <Property Name="Subjects" Type="text" />
+          <Property Name="Obtained_marks" Type="float" />
+          <Property Name="Total_marks" Type="float" />
+          <Property Name="Total_correct_ans" Type="int" />
+          <Property Name="Total_wrong_ans" Type="int" />
+          <Property Name="Total_skipped_ans" Type="int" />
+          <Property Name="Exam_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="int" />
+          <Property Name="Subject" Type="int" />
+          <Property Name="Title" Type="text" />
+          <Property Name="Option_a" Type="text" />
+          <Property Name="Option_b" Type="text" />
+          <Property Name="Option_c" Type="text" />
+          <Property Name="Option_d" Type="text" />
+          <Property Name="Solution" Type="text" />
+          <Property Name="Correct_ans" Type="text" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -19,7 +49,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" />
           <Property Name="Email" Type="varchar" MaxLength="30" />
-          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="2000" />
           <Property Name="About" Type="text" />
           <Property Name="Category" Type="int" />
         </EntityType>
@@ -31,6 +61,54 @@
           <Property Name="Category" Type="int" />
           <Property Name="Title" Type="varchar" MaxLength="30" />
         </EntityType>
+        <Association Name="FK__Exam__Category__5EBF139D">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Exam__Student__5FB337D6">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Catego__3D5E1FD2">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Subjec__3E52440B">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Student__Categor__3A81B327">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -55,10 +133,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="UTestDBModel1StoreContainer">
+        <EntityContainer Name="StudentDbModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Exam__Category__5EBF139D" Association="Self.FK__Exam__Category__5EBF139D">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Exam__Student__5FB337D6" Association="Self.FK__Exam__Student__5FB337D6">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Catego__3D5E1FD2" Association="Self.FK__Question__Catego__3D5E1FD2">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Subjec__3E52440B" Association="Self.FK__Question__Subjec__3E52440B">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
           <AssociationSet Name="FK__Student__Categor__3A81B327" Association="Self.FK__Student__Categor__3A81B327">
             <End Role="Category" EntitySet="Category" />
             <End Role="Student" EntitySet="Student" />
@@ -68,10 +164,56 @@
             <End Role="Subject" EntitySet="Subject" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="UTestDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="StudentDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Exams" Relationship="Self.FK__Exam__Category__5EBF139D" FromRole="Category" ToRole="Exam" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Catego__3D5E1FD2" FromRole="Category" ToRole="Question" />
+          <NavigationProperty Name="Students" Relationship="Self.FK__Student__Categor__3A81B327" FromRole="Category" ToRole="Student" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK__Subject__Categor__36B12243" FromRole="Category" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="Student" Type="Int32" />
+          <Property Name="Subjects" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Obtained_marks" Type="Double" />
+          <Property Name="Total_marks" Type="Double" />
+          <Property Name="Total_correct_ans" Type="Int32" />
+          <Property Name="Total_wrong_ans" Type="Int32" />
+          <Property Name="Total_skipped_ans" Type="Int32" />
+          <Property Name="Exam_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Exam__Category__5EBF139D" FromRole="Exam" ToRole="Category" />
+          <NavigationProperty Name="Student1" Relationship="Self.FK__Exam__Student__5FB337D6" FromRole="Exam" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="Subject" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Option_a" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Option_b" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Option_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Option_d" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Solution" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Correct_ans" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Question__Catego__3D5E1FD2" FromRole="Question" ToRole="Category" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK__Question__Subjec__3E52440B" FromRole="Question" ToRole="Subject" />
+        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="ID" />
@@ -79,36 +221,49 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Category" Type="Int32" />
-          <NavigationProperty Name="Category1" Relationship="UTestDBModel1.FK__Student__Categor__3A81B327" FromRole="Student" ToRole="Category" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Student__Categor__3A81B327" FromRole="Student" ToRole="Category" />
+          <NavigationProperty Name="Exams" Relationship="Self.FK__Exam__Student__5FB337D6" FromRole="Student" ToRole="Exam" />
         </EntityType>
-        <EntityContainer Name="StudentDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="Categories" EntityType="UTestDBModel1.Category" />
-          <AssociationSet Name="FK__Student__Categor__3A81B327" Association="UTestDBModel1.FK__Student__Categor__3A81B327">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <EntitySet Name="Subjects" EntityType="UTestDBModel1.Subject" />
-          <AssociationSet Name="FK__Subject__Categor__36B12243" Association="UTestDBModel1.FK__Subject__Categor__36B12243">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Subject" EntitySet="Subjects" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Category">
+        <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int32" />
           <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Students" Relationship="UTestDBModel1.FK__Student__Categor__3A81B327" FromRole="Category" ToRole="Student" />
-          <NavigationProperty Name="Subjects" Relationship="UTestDBModel1.FK__Subject__Categor__36B12243" FromRole="Category" ToRole="Subject" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Subject__Categor__36B12243" FromRole="Subject" ToRole="Category" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Subjec__3E52440B" FromRole="Subject" ToRole="Question" />
         </EntityType>
+        <Association Name="FK__Exam__Category__5EBF139D">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Catego__3D5E1FD2">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Student__Categor__3A81B327">
-          <End Type="UTestDBModel1.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="UTestDBModel1.Student" Role="Student" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="ID" />
@@ -118,18 +273,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Category" Type="Int32" />
-          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Category1" Relationship="UTestDBModel1.FK__Subject__Categor__36B12243" FromRole="Subject" ToRole="Category" />
-        </EntityType>
         <Association Name="FK__Subject__Categor__36B12243">
-          <End Type="UTestDBModel1.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="UTestDBModel1.Subject" Role="Subject" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="ID" />
@@ -139,14 +285,109 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Exam__Student__5FB337D6">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Subjec__3E52440B">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Exams" EntityType="Self.Exam" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <AssociationSet Name="FK__Exam__Category__5EBF139D" Association="Self.FK__Exam__Category__5EBF139D">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Exam" EntitySet="Exams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Catego__3D5E1FD2" Association="Self.FK__Question__Catego__3D5E1FD2">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__Categor__3A81B327" Association="Self.FK__Student__Categor__3A81B327">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject__Categor__36B12243" Association="Self.FK__Subject__Categor__36B12243">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Exam__Student__5FB337D6" Association="Self.FK__Exam__Student__5FB337D6">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Exam" EntitySet="Exams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Subjec__3E52440B" Association="Self.FK__Question__Subjec__3E52440B">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="UTestDBModel1StoreContainer" CdmEntityContainer="StudentDbEntities">
+        <EntityContainerMapping StorageEntityContainer="StudentDbModelStoreContainer" CdmEntityContainer="StudentDbEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="StudentDbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams">
+            <EntityTypeMapping TypeName="StudentDbModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+                <ScalarProperty Name="Obtained_marks" ColumnName="Obtained_marks" />
+                <ScalarProperty Name="Total_marks" ColumnName="Total_marks" />
+                <ScalarProperty Name="Total_correct_ans" ColumnName="Total_correct_ans" />
+                <ScalarProperty Name="Total_wrong_ans" ColumnName="Total_wrong_ans" />
+                <ScalarProperty Name="Total_skipped_ans" ColumnName="Total_skipped_ans" />
+                <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="StudentDbModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Option_a" ColumnName="Option_a" />
+                <ScalarProperty Name="Option_b" ColumnName="Option_b" />
+                <ScalarProperty Name="Option_c" ColumnName="Option_c" />
+                <ScalarProperty Name="Option_d" ColumnName="Option_d" />
+                <ScalarProperty Name="Solution" ColumnName="Solution" />
+                <ScalarProperty Name="Correct_ans" ColumnName="Correct_ans" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="UTestDBModel1.Student">
+            <EntityTypeMapping TypeName="StudentDbModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -157,20 +398,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="UTestDBModel1.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="UTestDBModel1.Subject">
+            <EntityTypeMapping TypeName="StudentDbModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
