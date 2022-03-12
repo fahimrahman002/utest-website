@@ -14,7 +14,10 @@ namespace UTestProject.Controllers
 
         public ActionResult Index()
         {
-            if (Session["UserEmail"] != null && Session["UserPass"] != null)
+            var email = Session["UserEmail"];
+            var pass = Session["UserPass"];
+
+            if (email != null && pass != null)
             {
                 return RedirectToAction("Dashboard", "User");
             }

@@ -74,8 +74,6 @@ namespace UTestProject.Controllers
 
             int totalQuestions = questionDb.Questions.Count();
 
-            Random rand = new Random();
-
             List<Question> questionList = questionDb.Questions
             .Where(temp => selectedSubjects.Contains(temp.Subject))
             .OrderBy(temp => Guid.NewGuid()) // For random selection from DB
@@ -148,20 +146,20 @@ namespace UTestProject.Controllers
                         if (question.Correct_ans == optionValueInput)
                         {
                             totalCorrectAns++;
-                            answerStatus.Add(1);
+                            answerStatus.Add(1);// 1 for skipped ans
                             markedAnswers.Add(question.Correct_ans);
                         }
                         else
                         {
                             totalWrongAns++;
-                            answerStatus.Add(-1);
+                            answerStatus.Add(-1);// -1 for skipped ans
                             markedAnswers.Add(optionValueInput);
                         }
                     }
                     else
                     {
                         totalSkippedAns++;
-                        answerStatus.Add(0);
+                        answerStatus.Add(0);// 0 for skipped ans
                         markedAnswers.Add("skipped");
                     }
                 }
