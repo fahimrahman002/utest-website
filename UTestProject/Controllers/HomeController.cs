@@ -12,6 +12,7 @@ namespace UTestProject.Controllers
     public class HomeController : Controller
     {
 
+        QuestionDbEntities questionDb = new QuestionDbEntities();
         public ActionResult Index()
         {
             var email = Session["UserEmail"];
@@ -23,6 +24,10 @@ namespace UTestProject.Controllers
             }
             else
             {
+                Question randomQuestion = questionDb.Questions
+                    .OrderBy(temp => Guid.NewGuid())
+                    .FirstOrDefault();
+                ViewBag.randomQuestion = randomQuestion;
                 return View();
 
             }

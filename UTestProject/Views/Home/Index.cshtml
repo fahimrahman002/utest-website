@@ -44,12 +44,14 @@
                     <div class="info_box">
                         <div class="ques-list">
                             <div class="ques-text">
-                                <!-- <h5 class="p-3" >1.What does html Stands for ?</h5> -->
+
+                                <h5 class='p-2 ques-text'>
+                                    <script>document.write("@ViewBag.randomQuestion.Title");</script>
+                                </h5>
                             </div>
                             <div>
                                 <div class="row ques-option">
-                                    <!-- <div class="col-md-6 option" >
-                                    <!-- <h6 class="p-3">HyperText markup languege <i class="fas fa-check-circle"></i></h6> -->
+
                                 </div>
                             </div>
                         </div>
@@ -172,8 +174,52 @@
 
     </div>
     @Scripts.Render("~/Static/js/bootstrap.js")
-    @Scripts.Render("~/Static/js/question.js")
-    @Scripts.Render("~/Static/js/script.js")
+    <script>
+        let question =
+        {
+            question: "@ViewBag.randomQuestion.Title",
+          answer: "@ViewBag.randomQuestion.Correct_ans",
+          options: [
+            "@ViewBag.randomQuestion.Option_a",
+            "@ViewBag.randomQuestion.Option_b",
+            "@ViewBag.randomQuestion.Option_c",
+            "@ViewBag.randomQuestion.Option_d",
+          ],
+        }
+      ;
+
+      function showQuestions(index) {
+        const option_list = document.querySelector(".ques-option");
+        const length = 4;
+
+        try {
+          for (var i = 0; i < length; i++) {
+            option_list.innerHTML +=
+              '<div class="col-md-5 option  m-2" ><h6 class="p-3">' +
+                question.options[i] +
+              "</h6></div>";
+          }
+
+          const option = option_list.querySelectorAll(".option");
+          for (let i = 0; i < option.length; i++) {
+            option[i].setAttribute("onclick", `optionSelected(${i},this)`);
+          }
+        } catch (e) {}
+      }
+      showQuestions(0);
+      function optionSelected(i,optionClick) {
+        let userAns = question.options[i];
+        let correctAns = question.answer;
+        if (userAns == correctAns) {
+          optionClick.classList.add("correct");
+          console.log("answer is correct");
+        } else {
+          optionClick.classList.add("inCorrect");
+          console.log("answer is wrong");
+        }
+      }
+
+    </script>
 
 </body>
 </html>
