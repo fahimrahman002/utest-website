@@ -69,10 +69,12 @@ namespace UTestProject.Controllers
         [HttpPost]
         public ActionResult GoogleAuth(string name, string user_name, string email, string picture, string token)
         {
+            List<Category> categories = categoryDb.Categories.ToList();
+            ViewBag.categories = categories;
 
             if (ModelState.IsValid)
             {
-                Student student = studentDb.Students.Where((temp) => temp.Email == email && temp.Password == token).FirstOrDefault();
+                Student student = studentDb.Students.Where((temp) => temp.Email == email).FirstOrDefault();
 
                 if (student != null)
                 {
@@ -375,7 +377,9 @@ namespace UTestProject.Controllers
                 rankingList.Add(new Ranking { studentId = studentID, studentName = studentName, totalPoint = obtainedMarks });
             }
 
-            return rankingList;
+            List<Ranking> sortedRankingList = rankingList.OrderByDescending(o => o.totalPoint).ToList();
+
+            return sortedRankingList;
 
         }
 

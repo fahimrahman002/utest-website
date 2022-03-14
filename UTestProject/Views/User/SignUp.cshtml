@@ -25,6 +25,8 @@
                 <div class="col-md-6">
                     @using (Html.BeginForm("SignUp", "User"))
                     {
+
+
                         <form class="login p-5">
                             <div class="mb-3">
                                 <label for="nameInput" class="form-label">Name</label>
@@ -46,9 +48,12 @@
                             <div class="mb-3">
                                 <label for="categoryInput" class="form-label">Category</label>
                                 <select class="form-select" id="categoryInput" name="categoryInput" aria-label="Default select example">
-                                    @foreach (var item in ViewBag.categories)
+                                    @if (ViewBag.categories != null)
                                     {
-                                        <option value="@item.ID">@item.Title</option>
+                                        foreach (var item in ViewBag.categories)
+                                        {
+                                            <option value="@item.ID">@item.Title</option>
+                                        }
                                     }
 
                                 </select>

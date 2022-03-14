@@ -76,6 +76,7 @@
                                     <span class="d-flex justify-content-between">
                                         @{
                                             double percentage = ((double)item.Obtained_marks / (double)item.Total_marks) * 100;
+                                            percentage = (double)System.Math.Round(percentage, 2);
                                             //double percentage = 20;
                                         }
                                         <h6>@percentage%</h6>
