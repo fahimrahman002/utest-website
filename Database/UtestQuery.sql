@@ -63,11 +63,27 @@ CREATE TABLE Question(
 --EXEC sp_RENAME 'Question.Correct_option' , 'Correct_ans', 'COLUMN'
 
 INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,Correct_ans,Solution) VALUES 
-(3,1,'Ques-1 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
-(3,1,'Ques-2 title c-c','op-a','op-b','op-c','op-d','op-c','solve like this'),
-(3,1,'Ques-3 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
-(3,1,'Ques-4 title c-a','op-a','op-b','op-c','op-d','op-a','solve like this'),
-(3,1,'Ques-5 title c-d','op-a','op-b','op-c','op-d','op-d','solve like this')
+(3,1,'Phy Ques-1 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,1,'Phy Ques-2 title c-c','op-a','op-b','op-c','op-d','op-c','solve like this'),
+(3,1,'Phy Ques-3 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,1,'Phy Ques-4 title c-a','op-a','op-b','op-c','op-d','op-a','solve like this'),
+(3,1,'Phy Ques-5 title c-d','op-a','op-b','op-c','op-d','op-d','solve like this')
+
+INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,Correct_ans,Solution) VALUES 
+(3,2,'Math Ques-1 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,2,'Math Ques-2 title c-c','op-a','op-b','op-c','op-d','op-c','solve like this'),
+(3,2,'Math Ques-3 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,2,'Math Ques-4 title c-a','op-a','op-b','op-c','op-d','op-a','solve like this'),
+(3,2,'Math Ques-5 title c-d','op-a','op-b','op-c','op-d','op-d','solve like this')
+
+INSERT INTO Question(Category,Subject,Title,Option_a,Option_b,Option_c,Option_d,Correct_ans,Solution) VALUES 
+(3,3,'Chem Ques-1 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,3,'Chem Ques-2 title c-c','op-a','op-b','op-c','op-d','op-c','solve like this'),
+(3,3,'Chem Ques-3 title c-b','op-a','op-b','op-c','op-d','op-b','solve like this'),
+(3,3,'Chem Ques-4 title c-a','op-a','op-b','op-c','op-d','op-a','solve like this'),
+(3,3,'Chem Ques-5 title c-d','op-a','op-b','op-c','op-d','op-d','solve like this')
+
+--delete from Question
 
 select * from Question
 
